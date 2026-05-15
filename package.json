@@ -18,13 +18,15 @@
     "test:visual:ui": "playwright test --ui",
     "test:visual:update": "playwright test --update-snapshots",
     "test:visual:debug": "playwright test --debug",
-    "quality": "npm run lint:html && npm run lint:css && npm run lint:js && npm run link-check && npm run audit:a11y && npm run test:visual"
-    ,
+    "quality": "npm run lint:html && npm run lint:css && npm run lint:js && npm run link-check && npm run audit:a11y && npm run test:visual",
+    "test:e2e:accessibility": "playwright test tests/visual/accessibility --project=chromium-desktop --reporter=list",
     "perf": "node scripts/perf-budgets.js",
     "perf:ci": "node scripts/perf-budgets.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
+    "@axe-core/playwright": "^4.0.0",
+    "axe-core": "^4.9.2",
     "eslint": "^8.50.0",
     "html-validate": "^8.5.0",
     "linkinator": "^7.6.1",
