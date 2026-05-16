@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "UI-Verse static site — quality gate tooling",
+  "bin": {
+    "uiverse": "./cli/src/index.js"
+  },
   "scripts": {
     "lint:js": "eslint '**/*.js' --ext .js",
     "lint:css": "stylelint '**/*.css'",
@@ -14,10 +17,13 @@
     "test:visual:ui": "playwright test --ui",
     "test:visual:update": "playwright test --update-snapshots",
     "test:visual:debug": "playwright test --debug",
-    "quality": "npm run lint:html && npm run lint:css && npm run lint:js && npm run link-check && npm run audit:a11y && npm run test:visual"
-    ,
+    "quality": "npm run lint:html && npm run lint:css && npm run lint:js && npm run link-check && npm run audit:a11y && npm run test:visual",
     "perf": "node scripts/perf-budgets.js",
-    "perf:ci": "node scripts/perf-budgets.js"
+    "perf:ci": "node scripts/perf-budgets.js",
+    "cli": "node cli/src/index.js",
+    "cli:add": "node cli/src/index.js add",
+    "cli:list": "node cli/src/index.js list",
+    "cli:init": "node cli/src/index.js init"
   },
   "devDependencies": {
     "eslint": "^8.50.0",
