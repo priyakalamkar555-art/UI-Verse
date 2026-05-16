@@ -609,6 +609,50 @@ body{
 }
 
 /* =========================
+   OTP CARD
+========================= */
+
+.otp-card{
+  background:#ffffff;
+  padding:40px;
+  border-radius:28px;
+  margin-bottom:40px;
+}
+
+.dark-card{
+  background:#020617;
+  color:#ffffff;
+}
+
+.otp-badge{
+  display:inline-block;
+  padding:8px 16px;
+  border-radius:999px;
+  background:#fff1eb;
+  color:#ff6b35;
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+.otp-card h2{
+  font-size:54px;
+  margin-bottom:14px;
+  font-family:"Syne", sans-serif;
+}
+
+.otp-card p{
+  color:#64748b;
+  margin-bottom:36px;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.dark-card p{
+  color:#94a3b8;
+}
+
+/* =========================
    COMMON OTP
 ========================= */
 
@@ -622,10 +666,23 @@ body{
 .otp-group input{
   width:64px;
   height:64px;
+
+  border:none;
+  outline:none;
+
   text-align:center;
   font-size:26px;
   font-weight:700;
+
   transition:0.3s ease;
+
+  pointer-events:auto;
+  user-select:auto;
+
+  color:#111827;
+  caret-color:#111827;
+
+  background:#ffffff;
 }
 
 /* =========================
@@ -633,14 +690,12 @@ body{
 ========================= */
 
 .floating-otp input{
-  border:none;
   border-radius:18px;
   background:#f1f5f9;
   box-shadow:0 5px 14px rgba(0,0,0,0.08);
 }
 
 .floating-otp input:focus{
-  outline:none;
   transform:translateY(-5px);
   background:#ffffff;
   box-shadow:0 12px 24px rgba(59,130,246,0.2);
@@ -662,7 +717,6 @@ body{
 }
 
 .gradient-otp input:focus{
-  outline:none;
 
   background:
     linear-gradient(#ffffff,#ffffff) padding-box,
@@ -689,11 +743,12 @@ body{
   background:transparent;
   color:#ffffff;
 
+  caret-color:#38bdf8;
+
   padding:12px 0;
 }
 
 .underline-otp input:focus{
-  outline:none;
   border-color:#38bdf8;
 }
 
@@ -721,4 +776,30 @@ body{
     width:38px;
   }
 
+}
+/* OTP INPUT FIX */
+
+.otp-group input{
+  -webkit-appearance:none;
+  appearance:none;
+
+  pointer-events:auto;
+  user-select:text;
+
+  opacity:1;
+
+  position:relative;
+  z-index:10;
+
+  font-family:'DM Sans', sans-serif;
+
+  text-align:center;
+
+  display:block;
+
+  cursor:text;
+}
+
+.otp-group input:focus{
+  outline:none;
 }
