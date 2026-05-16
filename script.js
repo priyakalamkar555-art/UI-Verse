@@ -362,8 +362,23 @@ function initScrollTop() {
   const btn = document.getElementById("scrollTopBtn");
   if (!btn) return;
 
+  let lastScrollY = 0;
+  let ticking = false;
+
+  const updateButton = () => {
+    const shouldShow = window.scrollY > 300;
+    btn.style.display = shouldShow ? "block" : "none";
+    btn.style.opacity = shouldShow ? "1" : "0";
+    btn.style.transform = shouldShow ? "translateY(0)" : "translateY(10px)";
+    ticking = false;
+  };
+
   window.addEventListener("scroll", () => {
-    btn.style.display = window.scrollY > 50 ? "block" : "none";
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      requestAnimationFrame(updateButton);
+      ticking = true;
+    }
   });
 
   btn.addEventListener("click", () => {
