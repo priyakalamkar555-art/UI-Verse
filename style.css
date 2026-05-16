@@ -1,3 +1,8 @@
+/* SMOOTH SCROLLING */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --sidebar-width: 240px;
 }
