@@ -148,11 +148,16 @@ h1, h2, h3 {
 .sidebar-footer a {
   color: #6a7a94;
   font-size: 16px;
-  transition: color var(--transition);
+  transition: color var(--transition), transform var(--transition);
 }
 
 .sidebar-footer a:hover {
   color: var(--accent);
+  transform: scale(1.15);
+}
+
+.sidebar-nav li a:active {
+  transform: translateX(3px) scale(0.98);
 }
 
 /* Sidebar backdrop (mobile) */
