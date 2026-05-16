@@ -761,3 +761,202 @@ body{
   }
 
 }
+
+/* =========================================
+   MOBILE TOGGLE
+========================================= */
+
+.mobile-toggle {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 1200;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 12px;
+  background: #eb6835;
+  color: white;
+  display: none;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   SIDEBAR OVERLAY
+========================================= */
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.sidebar-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================
+   NAVBAR SCROLL EFFECT
+========================================= */
+
+.navbar {
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+/* =========================================
+   BUTTON EFFECTS
+========================================= */
+
+.nav-btn,
+.card-header button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleAnim 600ms linear;
+  background: rgba(255,255,255,0.5);
+}
+
+@keyframes rippleAnim {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* =========================================
+   CHART ANIMATION
+========================================= */
+
+.line-chart span {
+  transition:
+    height 0.8s cubic-bezier(.22,.61,.36,1);
+}
+
+/* =========================================
+   HOVER EFFECTS
+========================================= */
+
+.dashboard-card,
+.stat-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover,
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================================
+   TEAM MEMBERS
+========================================= */
+
+.team-members img {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.team-members img:hover {
+  transform: scale(1.08);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    z-index: 1000;
+    transition: left 0.35s ease;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+
+  .navbar,
+  .main-home {
+    margin-left: 0 !important;
+  }
+
+  .navbar {
+    padding-left: 80px;
+  }
+
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero-section h1 {
+    font-size: 2.4rem;
+  }
+
+}
