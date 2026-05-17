@@ -177,7 +177,7 @@ body{
   border-bottom:
     1px solid var(--border);
 
-  z-index:999;
+  z-index:1010;
 }
 
 .search-bar{
