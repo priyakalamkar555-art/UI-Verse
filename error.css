@@ -537,3 +537,214 @@ body{
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   NEW PREMIUM ERROR COMPONENTS
+========================================================= */
+
+/* 6. Session Expired */
+.err-session {
+  background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%) !important;
+  border: 1px solid rgba(168, 85, 247, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(168, 85, 247, 0.1);
+  position: relative;
+}
+.err-session .icon-wrap {
+  font-size: 44px;
+  color: #a855f7;
+  margin-bottom: 12px;
+  animation: hourglass-flip 4s ease-in-out infinite;
+}
+.err-session .error-title {
+  color: #f3e8ff;
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+}
+.err-session .error-btn {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+}
+.err-session .error-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4);
+}
+
+@keyframes hourglass-flip {
+  0% { transform: rotate(0); }
+  45% { transform: rotate(0); }
+  55% { transform: rotate(180deg); }
+  100% { transform: rotate(180deg); }
+}
+
+/* 7. Payment Failed */
+.err-payment {
+  background: linear-gradient(135deg, #2d1616 0%, #1e1b1b 100%) !important;
+  border: 1px solid rgba(239, 68, 68, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(239, 68, 68, 0.1);
+}
+.err-payment .icon-wrap {
+  font-size: 46px;
+  color: #ef4444;
+  margin-bottom: 10px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+.err-payment .error-title {
+  color: #fecaca;
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+}
+.err-payment .btn-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+.err-payment .btn-retry {
+  background: #ef4444;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  padding: 8px 16px;
+  border: none;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.err-payment .btn-retry:hover {
+  background: #dc2626;
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+  transform: translateY(-2px);
+}
+.err-payment .btn-cancel {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.err-payment .btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(239,68,68,0.4)); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 12px rgba(239,68,68,0.7)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(239,68,68,0.4)); }
+}
+
+/* 8. Empty Search Result */
+.err-empty-search {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+  border: 1px solid rgba(251, 191, 36, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(251, 191, 36, 0.05);
+}
+.err-empty-search .icon-wrap {
+  font-size: 42px;
+  color: #fbbf24;
+  margin-bottom: 12px;
+  animation: hover-search 3s ease-in-out infinite;
+}
+.err-empty-search .error-title {
+  color: #fef3c7;
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+}
+.err-empty-search .error-btn {
+  background: transparent;
+  color: #fbbf24;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+}
+.err-empty-search .error-btn:hover {
+  background: rgba(251, 191, 36, 0.1);
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+@keyframes hover-search {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(4px, -4px) rotate(5deg); }
+  50% { transform: translate(-2px, -8px) rotate(-5deg); }
+  75% { transform: translate(-4px, -2px) rotate(3deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* 9. Unauthorized Access */
+.err-unauthorized {
+  background: linear-gradient(135deg, #1f1b16 0%, #111827 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.08);
+}
+.err-unauthorized .icon-wrap {
+  font-size: 44px;
+  color: #f59e0b;
+  margin-bottom: 12px;
+  animation: lock-wobble 3s ease-in-out infinite;
+}
+.err-unauthorized .error-title {
+  color: #fef3c7;
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+}
+.err-unauthorized .error-btn {
+  background: #f59e0b;
+  color: #111827;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
+.err-unauthorized .error-btn:hover {
+  background: #fbbf24;
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.35);
+  transform: translateY(-2px);
+}
+
+@keyframes lock-wobble {
+  0%, 100% { transform: rotate(0); }
+  10%, 30%, 50%, 70%, 90% { transform: rotate(-3deg); }
+  20%, 40%, 60%, 80% { transform: rotate(3deg); }
+}
+
+/* 10. Offline State */
+.err-offline {
+  background: linear-gradient(135deg, #172554 0%, #0f172a 100%) !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+}
+.err-offline .icon-wrap {
+  font-size: 44px;
+  color: #3b82f6;
+  margin-bottom: 12px;
+  animation: cloud-pulse 2.5s ease-in-out infinite;
+}
+.err-offline .error-title {
+  color: #dbeafe;
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+}
+.err-offline .error-btn {
+  background: #3b82f6;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+.err-offline .error-btn:hover {
+  background: #2563eb;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+@keyframes cloud-pulse {
+  0% { transform: translateY(0); filter: brightness(1); }
+  50% { transform: translateY(-6px); filter: brightness(1.2); }
+  100% { transform: translateY(0); filter: brightness(1); }
+}
+
