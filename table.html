@@ -4,6 +4,211 @@
 <head>
 
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>UIverse — Advanced Tables Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="table.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <h2>UIverse</h2>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li class="active"><a href="#">Tables</a></li>
+    <li><a href="#">Cards</a></li>
+    <li><a href="#">Forms</a></li>
+  </ul>
+</aside>
+
+<!-- ================= MAIN ================= -->
+<main class="main-home">
+
+<!-- HERO -->
+<section class="section">
+  <h1>📊 Advanced Tables Dashboard</h1>
+  <p>Modern SaaS-style responsive tables with real-world datasets.</p>
+</section>
+
+<!-- ================= TABLE 1 ================= -->
+<section class="section">
+  <h2>👨‍💼 Employee Directory</h2>
+
+  <div class="table-wrapper">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>ID</th><th>Name</th><th>Role</th><th>Dept</th><th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr><td>01</td><td>Arjun Mehta</td><td>Frontend Dev</td><td>Eng</td><td>Active</td></tr>
+        <tr><td>02</td><td>Meera Das</td><td>UI Designer</td><td>Design</td><td>Active</td></tr>
+        <tr><td>03</td><td>Rahul Sharma</td><td>Backend Dev</td><td>Eng</td><td>Active</td></tr>
+        <tr><td>04</td><td>Sneha Roy</td><td>PM</td><td>Product</td><td>Active</td></tr>
+        <tr><td>05</td><td>Vikram Singh</td><td>DevOps</td><td>Infra</td><td>Inactive</td></tr>
+        <tr><td>06</td><td>Ishita Jain</td><td>Analyst</td><td>Data</td><td>Active</td></tr>
+        <tr><td>07</td><td>Karan Mehta</td><td>ML Eng</td><td>AI</td><td>Active</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= TABLE 2 ================= -->
+<section class="section">
+  <h2>🧑‍💻 User Management</h2>
+
+  <div class="table-wrapper">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>User</th><th>Email</th><th>Role</th><th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr><td>Aryan Sharma</td><td>aryan@mail.com</td><td>Admin</td><td>Active</td></tr>
+        <tr><td>Meera Das</td><td>meera@mail.com</td><td>User</td><td>Pending</td></tr>
+        <tr><td>John Carter</td><td>john@mail.com</td><td>Editor</td><td>Inactive</td></tr>
+        <tr><td>Priya Nair</td><td>priya@mail.com</td><td>User</td><td>Active</td></tr>
+        <tr><td>Rohan Verma</td><td>rohan@mail.com</td><td>Admin</td><td>Active</td></tr>
+        <tr><td>Anjali Singh</td><td>anjali@mail.com</td><td>Editor</td><td>Active</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= TABLE 3 ================= -->
+<section class="section">
+  <h2>📊 Analytics Team</h2>
+
+  <div class="table-wrapper">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>Name</th><th>Role</th><th>Projects</th><th>Rating</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr><td>Neha Gupta</td><td>Data Scientist</td><td>8</td><td>★★★★★</td></tr>
+        <tr><td>Rohan Verma</td><td>ML Engineer</td><td>6</td><td>★★★★</td></tr>
+        <tr><td>Priya Nair</td><td>AI Engineer</td><td>5</td><td>★★★★★</td></tr>
+        <tr><td>Karan Mehta</td><td>Data Eng</td><td>7</td><td>★★★★</td></tr>
+        <tr><td>Ishita Jain</td><td>Analyst</td><td>10</td><td>★★★★★</td></tr>
+        <tr><td>Sneha Roy</td><td>Product</td><td>9</td><td>★★★★★</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= TABLE 4 ================= -->
+<section class="section">
+  <h2>💰 Payroll System</h2>
+
+  <div class="table-wrapper">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>Name</th><th>Dept</th><th>Salary</th><th>Attendance</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr><td>Arjun</td><td>Eng</td><td>₹80,000</td><td>95%</td></tr>
+        <tr><td>Meera</td><td>Design</td><td>₹65,000</td><td>88%</td></tr>
+        <tr><td>Rahul</td><td>Backend</td><td>₹90,000</td><td>92%</td></tr>
+        <tr><td>Sneha</td><td>Product</td><td>₹1,00,000</td><td>97%</td></tr>
+        <tr><td>Vikram</td><td>DevOps</td><td>₹85,000</td><td>70%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= TABLE 5 ================= -->
+<section class="section">
+  <h2>📁 Project Tracker</h2>
+
+  <div class="table-wrapper">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>Project</th><th>Manager</th><th>Team</th><th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr><td>E-Commerce</td><td>Arjun</td><td>8</td><td>Active</td></tr>
+        <tr><td>AI Chatbot</td><td>Priya</td><td>5</td><td>Pending</td></tr>
+        <tr><td>CRM System</td><td>Rahul</td><td>6</td><td>Completed</td></tr>
+        <tr><td>Portfolio UI</td><td>Sneha</td><td>4</td><td>Active</td></tr>
+        <tr><td>Analytics</td><td>Karan</td><td>10</td><td>Delayed</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= TABLE 6 ================= -->
+<section class="section">
+  <h2>💳 Transactions</h2>
+
+  <div class="table-wrapper">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>TXN ID</th><th>User</th><th>Method</th><th>Amount</th><th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr><td>#101</td><td>Arjun</td><td>UPI</td><td>₹2,500</td><td>Success</td></tr>
+        <tr><td>#102</td><td>Meera</td><td>Card</td><td>₹1,200</td><td>Pending</td></tr>
+        <tr><td>#103</td><td>Rahul</td><td>NetBank</td><td>₹5,000</td><td>Success</td></tr>
+        <tr><td>#104</td><td>Sneha</td><td>UPI</td><td>₹750</td><td>Failed</td></tr>
+        <tr><td>#105</td><td>Vikram</td><td>Card</td><td>₹9,000</td><td>Success</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= TABLE 7 ================= -->
+<section class="section">
+  <h2>🎧 Support Tickets</h2>
+
+  <div class="table-wrapper">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>Ticket</th><th>User</th><th>Issue</th><th>Priority</th><th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr><td>#T1</td><td>Arjun</td><td>Login Issue</td><td>High</td><td>Open</td></tr>
+        <tr><td>#T2</td><td>Meera</td><td>Payment Bug</td><td>Medium</td><td>Progress</td></tr>
+        <tr><td>#T3</td><td>Rahul</td><td>UI Bug</td><td>Low</td><td>Resolved</td></tr>
+        <tr><td>#T4</td><td>Sneha</td><td>Account Locked</td><td>High</td><td>Open</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <p>© 2026 UIverse — Advanced Table System</p>
+</footer>
+
 
   <meta
     name="viewport"
@@ -63,7 +268,13 @@
           <span>Buttons</span>
         </a>
       </li>
-      <li>
+            <li>
+        <a href="dropdown-components.html">
+          <i class="fa-solid fa-caret-down"></i>
+          <span>Dropdowns</span>
+        </a>
+      </li>
+<li>
         <a href="navbar.html">
           <i class="fa-solid fa-bars"></i>
           <span>Navbar</span>
@@ -305,7 +516,6 @@
 <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 <!-- =====================================================
 NAVBAR
-===================================================== -->
 
 <header class="navbar">
 
@@ -337,7 +547,6 @@ NAVBAR
 
 <!-- =====================================================
 MAIN
-===================================================== -->
 
 <main class="main-home">
 

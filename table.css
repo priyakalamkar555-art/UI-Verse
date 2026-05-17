@@ -778,6 +778,248 @@ tbody tr:hover{
   .footer-top { grid-template-columns: 1fr 1fr 1fr; }
 }
 
+.footer-bottom {
+  border-top: 1px solid #1e1e1e;
+  padding: 20px 48px;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+/* ===============================
+   UIverse Table System (Modern SaaS UI)
+   =============================== */
+
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  background: #0f1115;
+  color: #e6e6e6;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: #151922;
+  padding: 20px;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.sidebar h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 12px 0;
+}
+
+.sidebar ul li a {
+  color: #aaa;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #fff;
+}
+
+/* ================= MAIN ================= */
+.main-home {
+  margin-left: 260px;
+  padding: 40px;
+}
+
+/* ================= SECTION ================= */
+.section {
+  margin-bottom: 60px;
+}
+
+.section h1,
+.section h2 {
+  margin-bottom: 20px;
+}
+
+/* ================= TABLE WRAPPER ================= */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ================= TABLE BASE ================= */
+.ui-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.ui-table thead {
+  background: rgba(255,255,255,0.05);
+}
+
+.ui-table th {
+  text-align: left;
+  padding: 14px 18px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.ui-table td {
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #d6d6d6;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ================= ROW HOVER ================= */
+.ui-table tbody tr {
+  transition: 0.25s ease;
+}
+
+.ui-table tbody tr:hover {
+  background: rgba(255,255,255,0.05);
+  transform: scale(1.005);
+}
+
+/* ================= STATUS BADGES ================= */
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.active {
+  background: rgba(0, 255, 120, 0.15);
+  color: #00ff99;
+}
+
+.status.pending {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+}
+
+.status.inactive {
+  background: rgba(255, 0, 80, 0.15);
+  color: #ff4d6d;
+}
+
+/* ================= ROLE BADGES ================= */
+.role {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.role.admin {
+  background: rgba(0, 170, 255, 0.15);
+  color: #00c2ff;
+}
+
+.role.user {
+  background: rgba(255,255,255,0.08);
+  color: #ddd;
+}
+
+.role.editor {
+  background: rgba(180, 80, 255, 0.15);
+  color: #c77dff;
+}
+
+/* ================= AVATAR ================= */
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6c5ce7, #00cec9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* ================= BUTTONS ================= */
+.table-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 6px;
+  transition: 0.3s;
+}
+
+.table-btn.edit {
+  background: #00b894;
+  color: #fff;
+}
+
+.table-btn.delete {
+  background: #d63031;
+  color: #fff;
+}
+
+.table-btn:hover {
+  opacity: 0.8;
+}
+
+/* ================= HERO ================= */
+.section p {
+  color: #aaa;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-left: 260px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .main-home {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .footer {
+    margin-left: 0;
+  }
+
+  .ui-table {
+    min-width: 900px;
+  }
 @media(max-width:992px){
   .footer-top { grid-template-columns: 1fr 1fr; }
 }

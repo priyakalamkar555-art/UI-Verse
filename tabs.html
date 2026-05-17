@@ -39,7 +39,13 @@
           <span>Buttons</span>
         </a>
       </li>
-      <li>
+            <li>
+        <a href="dropdown-components.html">
+          <i class="fa-solid fa-caret-down"></i>
+          <span>Dropdowns</span>
+        </a>
+      </li>
+<li>
         <a href="navbar.html">
           <i class="fa-solid fa-bars"></i>
           <span>Navbar</span>
@@ -618,6 +624,56 @@ document.querySelectorAll('.tab-btn').forEach(btn =&gt; {
 }</code></pre>
     </div>
 
+
+    <div class="component-card" data-name="segmented control ios toggle tabs" data-cat="advanced">
+  <div class="card-top">
+    <span class="card-label">Segmented Tabs</span>
+    <span class="card-tag tag-popular">New</span>
+  </div>
+
+  <div class="card-preview tabs-preview">
+    <div class="seg-tabs" id="st8">
+      <div class="seg-nav">
+        <button class="seg-btn seg-active" onclick="switchSeg('st8','sp8a')">Monthly</button>
+        <button class="seg-btn" onclick="switchSeg('st8','sp8b')">Quarterly</button>
+        <button class="seg-btn" onclick="switchSeg('st8','sp8c')">Yearly</button>
+      </div>
+
+      <div class="seg-content">
+        <div class="seg-panel seg-show" id="sp8a">💰 Monthly billing selected</div>
+        <div class="seg-panel" id="sp8b">📊 Quarterly billing selected</div>
+        <div class="seg-panel" id="sp8c">🚀 Yearly billing selected</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="card-desc">iOS-style segmented control with smooth active indicator.</p>
+
+  <pre id="tc8" class="code-block"><code>
+.seg-nav{
+  display:flex;
+  background:rgba(0,0,0,0.05);
+  border-radius:999px;
+  padding:6px;
+  width:fit-content;
+}
+.seg-btn{
+  border:none;
+  padding:8px 18px;
+  border-radius:999px;
+  background:transparent;
+  cursor:pointer;
+  font-weight:600;
+  color:#666;
+}
+.seg-active{
+  background:#eb6835;
+  color:#fff;
+}
+.seg-panel{display:none;margin-top:15px;}
+.seg-show{display:block;}
+</code></pre>
+</div>
     <!-- 6. Vertical Tabs -->
     <div class="component-card" data-name="vertical sidebar tab left panel" data-cat="advanced">
       <div class="card-top">
@@ -696,6 +752,51 @@ document.querySelectorAll('.tab-btn').forEach(btn =&gt; {
         <span class="card-tag tag-trending">Trending</span>
       </div>
 
+      <div class="component-card" data-name="glass morphism floating blur tabs" data-cat="advanced">
+  <div class="card-top">
+    <span class="card-label">Glass Tabs</span>
+    <span class="card-tag tag-trending">Modern</span>
+  </div>
+
+  <div class="card-preview glass-bg">
+    <div class="glass-tabs" id="gt9">
+      <div class="glass-nav">
+        <button class="glass-btn glass-active" onclick="switchGlass('gt9','gp9a')">Explore</button>
+        <button class="glass-btn" onclick="switchGlass('gt9','gp9b')">Discover</button>
+        <button class="glass-btn" onclick="switchGlass('gt9','gp9c')">Learn</button>
+      </div>
+
+      <div class="glass-content">
+        <div class="glass-panel glass-show" id="gp9a">🌍 Explore new ideas</div>
+        <div class="glass-panel" id="gp9b">🔎 Discover hidden insights</div>
+        <div class="glass-panel" id="gp9c">📘 Learn modern UI patterns</div>
+      </div>
+    </div>
+  </div>
+
+  <pre id="tc9" class="code-block"><code>
+.glass-tabs{
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.08);
+  padding:16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.15);
+}
+.glass-nav{display:flex;gap:8px;}
+.glass-btn{
+  padding:8px 16px;
+  border:none;
+  border-radius:10px;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+}
+.glass-active{background:rgba(255,255,255,0.2);}
+.glass-panel{display:none;margin-top:12px;color:#fff;}
+.glass-show{display:block;}
+</code></pre>
+</div>
+
       <div class="card-preview dark-preview tabs-preview">
         <div class="demo-tabs" id="dt7">
           <div class="dt-nav-grad">
@@ -710,6 +811,8 @@ document.querySelectorAll('.tab-btn').forEach(btn =&gt; {
           </div>
         </div>
       </div>
+
+      
 
       <p class="card-desc">Dark-themed gradient tabs — bold and modern, perfect for landing pages and portfolios.</p>
       <div class="actions">
@@ -740,6 +843,29 @@ document.querySelectorAll('.tab-btn').forEach(btn =&gt; {
 }</code></pre>
     </div>
 
+    <div class="component-card" data-name="animated slider indicator tabs smooth motion" data-cat="advanced">
+  <div class="card-top">
+    <span class="card-label">Sliding Indicator Tabs</span>
+    <span class="card-tag tag-popular">Pro</span>
+  </div>
+
+  <div class="card-preview">
+    <div class="slide-tabs" id="sl10">
+      <div class="slide-nav">
+        <span class="slider"></span>
+        <button class="sl-btn sl-active" onclick="switchSlide(event,'sl10','0')">Home</button>
+        <button class="sl-btn" onclick="switchSlide(event,'sl10','1')">Projects</button>
+        <button class="sl-btn" onclick="switchSlide(event,'sl10','2')">Contact</button>
+      </div>
+
+      <div class="sl-content">
+        <div class="sl-panel show">🏠 Home Section</div>
+        <div class="sl-panel">💼 Projects Section</div>
+        <div class="sl-panel">📩 Contact Section</div>
+      </div>
+    </div>
+  </div>
+</div>
   </div><!-- /tabs-comp-grid -->
 
 </main>
@@ -846,6 +972,30 @@ document.querySelectorAll('.tab-btn').forEach(btn =&gt; {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
   });
 
+  function switchSeg(containerId, panelId){
+  const c = document.getElementById(containerId);
+  c.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('seg-active'));
+  c.querySelectorAll('.seg-panel').forEach(p => p.classList.remove('seg-show'));
+
+  event.currentTarget.classList.add('seg-active');
+  document.getElementById(panelId).classList.add('seg-show');
+}
+
+
+function switchSlide(e, id, index){
+  const c = document.getElementById(id);
+  const btns = c.querySelectorAll('.sl-btn');
+  const panels = c.querySelectorAll('.sl-panel');
+  const slider = c.querySelector('.slider');
+
+  btns.forEach(b => b.classList.remove('sl-active'));
+  panels.forEach(p => p.classList.remove('show'));
+
+  e.currentTarget.classList.add('sl-active');
+  panels[index].classList.add('show');
+
+  slider.style.transform = `translateX(${index * 100}%)`;
+}
   /* Tab switchers */
   function switchTab(containerId, panelId) {
     const container = document.getElementById(containerId);
@@ -855,6 +1005,14 @@ document.querySelectorAll('.tab-btn').forEach(btn =&gt; {
     document.getElementById(panelId).classList.add('dt-show');
   }
 
+  function switchGlass(containerId, panelId){
+  const c = document.getElementById(containerId);
+  c.querySelectorAll('.glass-btn').forEach(b => b.classList.remove('glass-active'));
+  c.querySelectorAll('.glass-panel').forEach(p => p.classList.remove('glass-show'));
+
+  event.currentTarget.classList.add('glass-active');
+  document.getElementById(panelId).classList.add('glass-show');
+}
   function switchPill(containerId, panelId, btnClass) {
     const container = document.getElementById(containerId);
     container.querySelectorAll('.' + btnClass).forEach(b => {

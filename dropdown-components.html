@@ -3,20 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Developer Widgets — UIverse</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&family=Fira+Code&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
+  <title>Dropdown Components</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="widgets.css">
-  <link rel="stylesheet" href="shared-sidebar.css">
+  <link rel="stylesheet" href="shared-sidebar.css" />
+  <link rel="stylesheet" href="dropdown-components.css" />
 </head>
 <body>
-
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
@@ -38,7 +33,7 @@
           <span>Buttons</span>
         </a>
       </li>
-            <li>
+            <li class="active">
         <a href="dropdown-components.html">
           <i class="fa-solid fa-caret-down"></i>
           <span>Dropdowns</span>
@@ -122,7 +117,7 @@
           <span>DIV</span>
         </a>
       </li>
-      <li class="active">
+      <li>
         <a href="widgets.html">
           <i class="fa-solid fa-layer-group"></i>
           <span>Widgets</span>
@@ -275,165 +270,184 @@
     </ul>
   </nav>
 
-  <div class="sidebar-footer">
-    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
-  </div>
+ <div class="socials">
+  <a href="https://github.com/yourusername" target="_blank" title="GitHub">
+    <i class="fab fa-github"></i>
+  </a>
+
+  <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+
+  <a href="https://twitter.com/yourusername" target="_blank" title="Twitter">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+</div>
 </aside>
 
-<!-- ================= MAIN CONTENT ================= -->
-<main class="main-home">
+<!-- ================= SIDEBAR BACKDROP ================= -->
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-  <header class="page-header">
-    <h1>Developer Widgets</h1>
-    <p>Modern reusable developer-focused UI widgets with interactive styling and clean structures.</p>
-  </header>
+  <main class="main-home page-shell">
+    <header class="hero">
+      <p class="eyebrow">Dropdown Components</p>
+      <h1>Modern reusable dropdown menus</h1>
+      <p class="hero-copy">
+        Five responsive dropdown patterns with smooth motion, hover feedback, nested menus,
+        and mobile-friendly layouts built with HTML, CSS, and vanilla JavaScript.
+      </p>
+    </header>
 
-  <section class="widgets-grid">
-
-    <!-- 1. GITHUB STATS WIDGET -->
-    <div class="widget-wrapper">
-      <div class="widget-info">
-        <h2>GitHub Stats</h2>
-        <p>A compact view of developer contributions.</p>
-      </div>
-      <div class="github-stats-widget">
-        <div class="gh-header">
-          <i class="fab fa-github"></i>
-          <h3>saitejx / UI-Verse</h3>
+    <section class="component-grid">
+      <article class="component-card">
+        <div class="card-heading">
+          <h2>Minimal Dropdown Menu</h2>
+          <span>Simple</span>
         </div>
-        <div class="gh-stats-grid">
-          <div class="gh-stat-box">
-            <span class="value">15.2k</span>
-            <span class="label">Stars</span>
-          </div>
-          <div class="gh-stat-box">
-            <span class="value">482</span>
-            <span class="label">Commits</span>
-          </div>
-          <div class="gh-stat-box">
-            <span class="value">89</span>
-            <span class="label">PRs</span>
-          </div>
-          <div class="gh-stat-box">
-            <span class="value">1.2k</span>
-            <span class="label">Forks</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. TERMINAL WIDGET -->
-    <div class="widget-wrapper">
-      <div class="widget-info">
-        <h2>Terminal Widget</h2>
-        <p>Dashboard terminal mockup for logs and commands.</p>
-      </div>
-      <div class="terminal-widget">
-        <div class="term-header">
-          <div class="term-dot red"></div>
-          <div class="term-dot yellow"></div>
-          <div class="term-dot green"></div>
-        </div>
-        <div class="term-body">
-          <div class="term-line"><span class="term-prompt">user@dev:~$</span> <span class="term-cmd">npm run build</span></div>
-          <div class="term-line">> UI-Verse@1.0.0 build</div>
-          <div class="term-line">> vite build</div>
-          <div class="term-line" style="color:#27c93f;">✓ 24 modules transformed.</div>
-          <div class="term-line">dist/index.html   1.2 kB</div>
-          <div class="term-line">dist/assets/index.js   240.5 kB</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. CODE SNIPPET WIDGET -->
-    <div class="widget-wrapper">
-      <div class="widget-info">
-        <h2>Code Snippet</h2>
-        <p>Syntax-highlighted snippet with copy functionality.</p>
-      </div>
-      <div class="code-snippet-widget">
-        <div class="snippet-header">
-          <span class="snippet-lang">JavaScript</span>
-          <button class="copy-btn" id="copyBtn">
-            <i class="fa-regular fa-copy"></i> <span>Copy</span>
+        <div class="dropdown" data-dropdown>
+          <button class="trigger minimal-trigger" type="button">
+            Choose action
+            <span>⌄</span>
           </button>
-        </div>
-        <div class="snippet-body">
-<pre><code><span class="token keyword">const</span> <span class="token function">initWidget</span> <span class="token keyword">=</span> <span class="token punctuation">()</span> <span class="token keyword">=></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Widget loaded successfully!"</span><span class="token punctuation">);</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token function">initWidget</span><span class="token punctuation">();</span></code></pre>
-        </div>
-      </div>
-    </div>
-
-    <!-- 4. ACTIVITY TRACKER WIDGET -->
-    <div class="widget-wrapper">
-      <div class="widget-info">
-        <h2>Activity Tracker</h2>
-        <p>Contribution heatmap inspired by dev platforms.</p>
-      </div>
-      <div class="activity-widget">
-        <div class="activity-header">Contributions in the last 30 days</div>
-        <div class="activity-grid">
-          <!-- Generate random activity boxes via JS for demonstration -->
-          <script>
-            document.write(Array.from({length: 48}).map(() => {
-              const level = Math.floor(Math.random() * 5); // 0 to 4
-              return `<div class="activity-box ${level > 0 ? 'level-' + level : ''}"></div>`;
-            }).join(''));
-          </script>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5. DEVELOPER PROFILE WIDGET -->
-    <div class="widget-wrapper">
-      <div class="widget-info">
-        <h2>Developer Profile</h2>
-        <p>Compact card for portfolios and author sections.</p>
-      </div>
-      <div class="dev-profile-widget">
-        <div class="dev-avatar">👨‍💻</div>
-        <div class="dev-info">
-          <h3>Saitej X</h3>
-          <p>Frontend Engineer & UI Designer</p>
-          <div class="dev-socials">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <div class="menu minimal-menu">
+            <button type="button">Dashboard</button>
+            <button type="button">Projects</button>
+            <button type="button">Settings</button>
           </div>
         </div>
-      </div>
-    </div>
+      </article>
 
-  </section>
-</main>
+      <article class="component-card">
+        <div class="card-heading">
+          <h2>Profile Dropdown</h2>
+          <span>User</span>
+        </div>
+        <div class="dropdown" data-dropdown>
+          <button class="trigger profile-trigger" type="button">
+            <span class="avatar">AJ</span>
+            <span class="profile-copy">
+              <strong>Ava James</strong>
+              <small>Product Designer</small>
+            </span>
+            <span>⌄</span>
+          </button>
+          <div class="menu profile-menu">
+            <button type="button">My profile</button>
+            <button type="button">Billing</button>
+            <button type="button">Sign out</button>
+          </div>
+        </div>
+      </article>
 
-<script>
-  // Copy Code Interaction
-  document.getElementById('copyBtn').addEventListener('click', function() {
-    const codeText = `const initWidget = () => {
-  console.log("Widget loaded successfully!");
-};
+      <article class="component-card">
+        <div class="card-heading">
+          <h2>Multi-Level Dropdown</h2>
+          <span>Nested</span>
+        </div>
+        <div class="dropdown" data-dropdown>
+          <button class="trigger gradient-trigger" type="button">
+            Explore services
+            <span>⌄</span>
+          </button>
+          <div class="menu nested-menu">
+            <button type="button">Overview</button>
+            <div class="submenu-wrap">
+              <button class="submenu-trigger" type="button">Products <span>›</span></button>
+              <div class="submenu">
+                <button type="button">UI kits</button>
+                <button type="button">Templates</button>
+                <button type="button">Icons</button>
+              </div>
+            </div>
+            <div class="submenu-wrap">
+              <button class="submenu-trigger" type="button">Resources <span>›</span></button>
+              <div class="submenu">
+                <button type="button">Docs</button>
+                <button type="button">Tutorials</button>
+                <button type="button">Support</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
 
-initWidget();`;
-    
-    navigator.clipboard.writeText(codeText).then(() => {
-      const btn = this;
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Copied!</span>';
-      setTimeout(() => {
-        btn.innerHTML = originalText;
-      }, 2000);
-    }).catch(err => {
-      console.error('Failed to copy: ', err);
+      <article class="component-card">
+        <div class="card-heading">
+          <h2>Notification Dropdown</h2>
+          <span>Updates</span>
+        </div>
+        <div class="dropdown" data-dropdown>
+          <button class="trigger notification-trigger" type="button">
+            Notifications
+            <span class="badge">3</span>
+          </button>
+          <div class="menu notification-menu">
+            <button type="button">
+              <strong>Build completed</strong>
+              <small>2 min ago</small>
+            </button>
+            <button type="button">
+              <strong>New comment</strong>
+              <small>18 min ago</small>
+            </button>
+            <button type="button">
+              <strong>Payment received</strong>
+              <small>1 hour ago</small>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="component-card glass-card">
+        <div class="card-heading">
+          <h2>Glassmorphism Dropdown</h2>
+          <span>Glass</span>
+        </div>
+        <div class="dropdown" data-dropdown>
+          <button class="trigger glass-trigger" type="button">
+            Glass menu
+            <span>⌄</span>
+          </button>
+          <div class="menu glass-menu">
+            <button type="button">Account</button>
+            <button type="button">Appearance</button>
+            <button type="button">Security</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const dropdowns = document.querySelectorAll('[data-dropdown]');
+
+    function closeDropdowns(except) {
+      dropdowns.forEach(dropdown => {
+        if (dropdown !== except) dropdown.classList.remove('open');
+      });
+    }
+
+    dropdowns.forEach(dropdown => {
+      const trigger = dropdown.querySelector('.trigger');
+      trigger.addEventListener('click', event => {
+        event.stopPropagation();
+        const willOpen = !dropdown.classList.contains('open');
+        closeDropdowns(dropdown);
+        dropdown.classList.toggle('open', willOpen);
+      });
     });
-  });
-</script>
 
+    document.querySelectorAll('.submenu-trigger').forEach(trigger => {
+      trigger.addEventListener('click', event => {
+        event.stopPropagation();
+        trigger.parentElement.classList.toggle('submenu-open');
+      });
+    });
+
+    document.addEventListener('click', () => closeDropdowns());
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeDropdowns();
+    });
+  </script>
 </body>
 </html>

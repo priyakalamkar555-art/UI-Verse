@@ -132,6 +132,19 @@
 .sidebar-backdrop.visible {
   display: block;
 }
+
+.fa-solid, .fas {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900;
+}
+.fa-regular, .far {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 400;
+}
+.fa-brands, .fab {
+  font-family: "Font Awesome 6 Brands" !important;
+}
+
 /* ============================================================
    HERO PREVIEW — mini card widget
    ============================================================ */
@@ -1471,10 +1484,198 @@ body.dark-mode .card-preview :is(.profile-role, .product-desc, .image-card-body 
   }
 }
 
+/* =============================================
+   GLASSMORPHISM CARD
+
+.glass-card {
+  width: 280px;
+  padding: 28px;
+  border-radius: 24px;
+  text-align: center;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  transition: 0.35s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+}
+
+.glass-avatar {
+  width: 84px;
+  height: 84px;
+  margin: auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6c5ce7, #00cec9);
+}
+
+.glass-card h4 {
+  margin-top: 18px;
+  font-size: 22px;
+}
+
+.glass-card p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.glass-stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0;
+}
+
+.glass-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-stats strong {
+  font-size: 20px;
+}
+
+.glass-stats span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+.glass-btn {
+  width: 100%;
+  border: none;
+  padding: 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(90deg, #6c5ce7, #00cec9);
+}
+
+/* =============================================
+   NEUMORPHISM CARD
+
+.neo-card {
+  width: 280px;
+  padding: 30px;
+  border-radius: 24px;
+  text-align: center;
+  background: #eef2f7;
+  transition: 0.3s ease;
+  box-shadow:
+    10px 10px 25px rgba(0, 0, 0, 0.08),
+    -10px -10px 25px rgba(255, 255, 255, 0.9);
+}
+
+.neo-card:hover {
+  transform: translateY(-8px);
+}
+
+.neo-icon {
+  width: 74px;
+  height: 74px;
+  margin: auto;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  color: #6c5ce7;
+  box-shadow:
+    inset 4px 4px 10px rgba(255,255,255,0.9),
+    inset -4px -4px 10px rgba(0,0,0,0.08);
+}
+
+.neo-card h4 {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #111827;
+}
+
+.neo-card p {
+  margin-top: 12px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.neo-btn {
+  margin-top: 22px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  background: #eef2f7;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow:
+    6px 6px 14px rgba(0,0,0,0.08),
+    -6px -6px 14px rgba(255,255,255,0.9);
+}
+
+/* =============================================
+   CYBERPUNK CARD
+
+.cyber-card {
+  width: 300px;
+  padding: 28px;
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+  background: #0f172a;
+  border: 1px solid #00f5ff;
+  color: #fff;
+  transition: 0.35s ease;
+  box-shadow: 0 0 35px rgba(0, 245, 255, 0.25);
+}
+
+.cyber-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 45px rgba(0,245,255,0.4);
+}
+
+.cyber-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #00f5ff;
+  color: #000;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cyber-card h3 {
+  font-size: 26px;
+  margin-bottom: 14px;
+}
+
+.cyber-card p {
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+}
+
+.cyber-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cyber-actions button {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(135deg,#00f5ff,#6c5ce7);
+  color: white;
+}
 
 /* =========================================================
    NEW PREMIUM CARD COMPONENTS
-========================================================= */
 
 /* 10. Glassmorphism Profile Card */
 .glass-profile-card {
