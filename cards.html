@@ -827,6 +827,280 @@
 .social-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.1); }</code></pre>
     </div>
 
+    <!-- 10. GLASSMORPHISM PROFILE CARD -->
+    <div class="component-card" data-name="glassmorphic profile card glass blur astronaut" data-cat="profile">
+      <div class="card-top">
+        <span class="card-label">Glassmorphic Profile</span>
+        <span class="card-tag tag-new">New</span>
+      </div>
+      <div class="card-preview dark-preview">
+        <div class="glass-profile-card">
+          <div class="glass-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+          <h3 class="glass-name">Nova Vance</h3>
+          <p class="glass-role">UX Researcher · Spatial UI</p>
+          <div class="glass-social-row">
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-figma"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="card-desc">A premium translucent profile card featuring ultra-smooth backdrop blur and hover transformations.</p>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('c10', this)">
+          <i class="fa-solid fa-code"></i> View Code
+        </button>
+        <button class="action-btn copy-btn" onclick="copyCode('c10', this)">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+      </div>
+      <pre id="c10" class="code-block"><code>&lt;div class="glass-profile-card"&gt;
+  &lt;div class="glass-avatar"&gt;&lt;i class="fa-solid fa-user-astronaut"&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;h3 class="glass-name"&gt;Nova Vance&lt;/h3&gt;
+  &lt;p class="glass-role"&gt;UX Researcher · Spatial UI&lt;/p&gt;
+  &lt;div class="glass-social-row"&gt;
+    &lt;a href="#"&gt;&lt;i class="fa-brands fa-github"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;a href="#"&gt;&lt;i class="fa-brands fa-figma"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;a href="#"&gt;&lt;i class="fa-brands fa-linkedin-in"&gt;&lt;/i&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.glass-profile-card {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 30px 24px;
+  text-align: center;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+.glass-profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}</code></pre>
+    </div>
+
+    <!-- 11. EXPANDABLE INFORMATION CARD -->
+    <div class="component-card" data-name="expandable information card telemetry metric" data-cat="content">
+      <div class="card-top">
+        <span class="card-label">Expandable Info Card</span>
+        <span class="card-tag tag-new">New</span>
+      </div>
+      <div class="card-preview">
+        <div class="expandable-info-card">
+          <div class="card-header-icon"><i class="fa-solid fa-folder-open"></i></div>
+          <h3 class="info-title">System Metrics</h3>
+          <p class="info-desc">Real-time node cluster telemetry and latency monitoring dashboard.</p>
+          <div class="expand-details">
+            <div class="detail-row"><span>Latency</span><strong>24ms</strong></div>
+            <div class="detail-row"><span>Uptime</span><strong>99.98%</strong></div>
+            <div class="detail-row"><span>Active Nodes</span><strong>14 / 16</strong></div>
+          </div>
+        </div>
+      </div>
+      <p class="card-desc">An interactive metrics index-tab card that unfolds beautifully to reveal detail telemetry stats on hover.</p>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('c11', this)">
+          <i class="fa-solid fa-code"></i> View Code
+        </button>
+        <button class="action-btn copy-btn" onclick="copyCode('c11', this)">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+      </div>
+      <pre id="c11" class="code-block"><code>&lt;div class="expandable-info-card"&gt;
+  &lt;div class="card-header-icon"&gt;&lt;i class="fa-solid fa-folder-open"&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;h3 class="info-title"&gt;System Metrics&lt;/h3&gt;
+  &lt;p class="info-desc"&gt;Real-time node cluster telemetry and latency monitoring.&lt;/p&gt;
+  &lt;div class="expand-details"&gt;
+    &lt;div class="detail-row"&gt;&lt;span&gt;Latency&lt;/span&gt;&lt;strong&gt;24ms&lt;/strong&gt;&lt;/div&gt;
+    &lt;div class="detail-row"&gt;&lt;span&gt;Uptime&lt;/span&gt;&lt;strong&gt;99.98%&lt;/strong&gt;&lt;/div&gt;
+    &lt;div class="detail-row"&gt;&lt;span&gt;Active Nodes&lt;/span&gt;&lt;strong&gt;14 / 16&lt;/strong&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.expandable-info-card {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  border-radius: 20px;
+  padding: 24px;
+  width: 260px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+.expandable-info-card:hover .expand-details {
+  max-height: 120px;
+  opacity: 1;
+}</code></pre>
+    </div>
+
+    <!-- 12. PRODUCT SHOWCASE CARD -->
+    <div class="component-card" data-name="product showcase card watch commerce pricing" data-cat="commerce">
+      <div class="card-top">
+        <span class="card-label">Product Showcase</span>
+        <span class="card-tag tag-new">New</span>
+      </div>
+      <div class="card-preview">
+        <div class="product-showcase-card">
+          <span class="showcase-badge">Premium</span>
+          <div class="showcase-visual"><i class="fa-solid fa-clock"></i></div>
+          <h3 class="showcase-name">Aero Chrono</h3>
+          <div class="showcase-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="showcase-footer">
+            <span class="showcase-price">$349</span>
+            <button class="showcase-btn">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <p class="card-desc">High-end e-commerce card offering product badge labels, animated star ratings, and scaling visual assets.</p>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('c12', this)">
+          <i class="fa-solid fa-code"></i> View Code
+        </button>
+        <button class="action-btn copy-btn" onclick="copyCode('c12', this)">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+      </div>
+      <pre id="c12" class="code-block"><code>&lt;div class="product-showcase-card"&gt;
+  &lt;span class="showcase-badge"&gt;Premium&lt;/span&gt;
+  &lt;div class="showcase-visual"&gt;&lt;i class="fa-solid fa-clock"&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;h3 class="showcase-name"&gt;Aero Chrono&lt;/h3&gt;
+  &lt;div class="showcase-rating"&gt;
+    &lt;i class="fa-solid fa-star"&gt;&lt;/i&gt;
+    &lt;i class="fa-solid fa-star"&gt;&lt;/i&gt;
+    &lt;i class="fa-solid fa-star"&gt;&lt;/i&gt;
+    &lt;i class="fa-solid fa-star"&gt;&lt;/i&gt;
+    &lt;i class="fa-solid fa-star-half-stroke"&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class="showcase-footer"&gt;
+    &lt;span class="showcase-price"&gt;$349&lt;/span&gt;
+    &lt;button class="showcase-btn"&gt;Buy Now&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.product-showcase-card {
+  background: #0f172a !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 20px;
+  padding: 24px;
+  width: 250px;
+  position: relative;
+  transition: all 0.3s;
+}
+.product-showcase-card:hover {
+  transform: translateY(-8px);
+  border-color: #ec4899 !important;
+}</code></pre>
+    </div>
+
+    <!-- 13. STATISTICS DASHBOARD CARD -->
+    <div class="component-card" data-name="statistics dashboard card revenue telemetry" data-cat="content">
+      <div class="card-top">
+        <span class="card-label">Dashboard Stat Card</span>
+        <span class="card-tag tag-new">New</span>
+      </div>
+      <div class="card-preview">
+        <div class="stat-dashboard-card">
+          <div class="stat-header">
+            <div class="stat-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+            <span class="stat-trend"><i class="fa-solid fa-arrow-trend-up"></i> +14.8%</span>
+          </div>
+          <div class="stat-value">$24,892.40</div>
+          <div class="stat-label">Active Sales Revenue</div>
+          <div class="stat-footer-bar">
+            <div class="stat-progress-bg"><div class="stat-progress-fill"></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="card-desc">Minimalist dashboard stat card featuring dynamic progress-bar filling and upward active trend indicator.</p>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('c13', this)">
+          <i class="fa-solid fa-code"></i> View Code
+        </button>
+        <button class="action-btn copy-btn" onclick="copyCode('c13', this)">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+      </div>
+      <pre id="c13" class="code-block"><code>&lt;div class="stat-dashboard-card"&gt;
+  &lt;div class="stat-header"&gt;
+    &lt;div class="stat-icon-wrap"&gt;&lt;i class="fa-solid fa-chart-line"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;span class="stat-trend"&gt;&lt;i class="fa-solid fa-arrow-trend-up"&gt;&lt;/i&gt; +14.8%&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="stat-value"&gt;$24,892.40&lt;/div&gt;
+  &lt;div class="stat-label"&gt;Active Sales Revenue&lt;/div&gt;
+  &lt;div class="stat-footer-bar"&gt;
+    &lt;div class="stat-progress-bg"&gt;&lt;div class="stat-progress-fill"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.stat-dashboard-card {
+  background: #111827 !important;
+  border: 1px solid #1f2937 !important;
+  border-radius: 20px;
+  padding: 24px;
+  width: 250px;
+  transition: all 0.3s;
+}
+.stat-dashboard-card:hover {
+  transform: translateY(-6px);
+  border-color: #3b82f6 !important;
+}</code></pre>
+    </div>
+
+    <!-- 14. GRADIENT HOVER CARD -->
+    <div class="component-card" data-name="gradient hover card glow cyberpunk" data-cat="content">
+      <div class="card-top">
+        <span class="card-label">Gradient Hover Card</span>
+        <span class="card-tag tag-new">New</span>
+      </div>
+      <div class="card-preview">
+        <div class="gradient-hover-card">
+          <div class="glow-bg"></div>
+          <div class="card-inner">
+            <div class="gradient-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3 class="gradient-card-title">Quantum Engine</h3>
+            <p class="gradient-card-desc">Interactive physics render rendering node with GPU clusters.</p>
+          </div>
+        </div>
+      </div>
+      <p class="card-desc">Premium cyberpunk layout that unleashes a gorgeous glowing neon border gradient backdrop blur on hover.</p>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('c14', this)">
+          <i class="fa-solid fa-code"></i> View Code
+        </button>
+        <button class="action-btn copy-btn" onclick="copyCode('c14', this)">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+      </div>
+      <pre id="c14" class="code-block"><code>&lt;div class="gradient-hover-card"&gt;
+  &lt;div class="glow-bg"&gt;&lt;/div&gt;
+  &lt;div class="card-inner"&gt;
+    &lt;div class="gradient-icon"&gt;&lt;i class="fa-solid fa-wand-magic-sparkles"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;h3 class="gradient-card-title"&gt;Quantum Engine&lt;/h3&gt;
+    &lt;p class="gradient-card-desc"&gt;Interactive physics render rendering node with GPU clusters.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.gradient-hover-card {
+  position: relative;
+  width: 250px;
+  border-radius: 20px;
+  padding: 1px;
+  background: rgba(255,255,255,0.05);
+  transition: all 0.3s;
+}
+.gradient-hover-card:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(135deg, #f43f5e, #a855f7);
+}</code></pre>
+    </div>
+
   </div><!-- /cards-grid -->
 
 </main>
