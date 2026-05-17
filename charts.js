@@ -76,24 +76,85 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Helper for copy code buttons
-function toggleCode(id) {
-    const el = document.getElementById(id);
-    if(el) el.classList.toggle('show');
+function toggleCode(id, btn) {
+    const block = document.getElementById(id);
+    if (!block) return;
+    const isOpen = block.classList.toggle('show');
+    btn.innerHTML = isOpen
+        ? '<i class="fa-solid fa-eye-slash"></i> Hide Code'
+        : '<i class="fa-solid fa-code"></i> View Code';
 }
 
-function copyCode(previewId, btnElement) {
-    const preview = document.getElementById(previewId);
-    if (!preview) return;
+let toastTimer;
+function showToast() {
+    const toast = document.getElementById('copyToast');
+    if (!toast) return;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+}
 
-    const htmlToCopy = preview.innerHTML.trim();
+function copyCode(id, btn) {
+    const codeBlock = document.getElementById(id);
+    if (!codeBlock) return;
     
-    navigator.clipboard.writeText(htmlToCopy).then(() => {
-        const originalText = btnElement.innerHTML;
-        btnElement.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-        btnElement.style.color = '#10b981';
+    // Grab the pre code text or fallback to block text
+    const textToCopy = codeBlock.querySelector('code')?.innerText || codeBlock.innerText;
+    
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+        btn.classList.add('copied');
+        showToast();
         setTimeout(() => {
-            btnElement.innerHTML = originalText;
-            btnElement.style.color = '';
+            btn.innerHTML = originalHtml;
+            btn.classList.remove('copied');
         }, 2000);
     });
 }
+
+// Global Layout Logic
+document.addEventListener('DOMContentLoaded', () => {
+    /* Dark Mode Toggle */
+    const toggle = document.getElementById('darkModeToggle');
+    if (toggle) {
+        const icon = toggle.querySelector('i');
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            if (icon) icon.className = 'fa-solid fa-sun';
+        }
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            if (icon) icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+
+    /* Scroll animations */
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.component-card').forEach(el => observer.observe(el));
+});
+
+/* Sidebar */
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    if (sidebar) sidebar.classList.toggle('open');
+    if (backdrop) backdrop.classList.toggle('visible');
+}
+
+/* Scroll Top */
+function scrollToTop() { 
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+}
+
+window.addEventListener('scroll', () => {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const navbar = document.getElementById('navbar');
+    if (scrollTopBtn) scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
