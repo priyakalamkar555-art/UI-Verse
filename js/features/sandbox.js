@@ -100,16 +100,24 @@ const Sandbox = {
 
       const renderIframe = (htmlContent) => {
         const safeHTML = Sandbox.removeUnsafePatterns(Sandbox.sanitizeHTML(htmlContent));
+        
+        // Use complete isolation - no external styles
         iframe.srcdoc = `
           <!DOCTYPE html>
           <html>
           <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="style.css">
             <style>
+              /* Complete isolation - no parent styles leak */
               :root {
                 color-scheme: light;
+                --uiv-primary: #eb6835;
+                --uiv-secondary: #6c5ce7;
+              }
+
+              * {
+                box-sizing: border-box;
               }
 
               body {
@@ -117,9 +125,8 @@ const Sandbox = {
                 margin: 0;
                 background: transparent;
                 padding: 20px;
-                box-sizing: border-box;
                 position: relative;
-                font-family: inherit;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
               }
 
               #sandbox-root {
