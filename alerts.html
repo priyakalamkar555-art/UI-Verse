@@ -259,6 +259,323 @@
         <h1>Alerts</h1>
         <p>Accessible and responsive alert banners for important messages.</p>
       </div>
+    </div>
+    <div class="page-hero-right">
+      <div class="alert-hero-preview">
+        <div class="ahp-alert ahp-success">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>Your changes were saved successfully.</span>
+        </div>
+        <div class="ahp-alert ahp-warning">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>You are running low on storage.</span>
+        </div>
+        <div class="ahp-alert ahp-error">
+          <i class="fa-solid fa-circle-xmark"></i>
+          <span>Connection failed. Please retry.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15. Glassmorphism Alerts -->
+<div class="component-card" data-name="glass blur modern transparent alert" data-cat="filled">
+  <div class="card-top">
+    <span class="card-label">Glassmorphism Alerts</span>
+    <span class="card-tag tag-trending">Modern</span>
+  </div>
+
+  <div class="card-preview">
+    <div class="demo-alert-stack">
+      <div class="al al-glass-success">
+        <i class="fa-solid fa-circle-check al-icon"></i>
+        <div class="al-body">Payment processed successfully.</div>
+      </div>
+
+      <div class="al al-glass-error">
+        <i class="fa-solid fa-circle-xmark al-icon"></i>
+        <div class="al-body">Unable to connect to server.</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="card-desc">Modern frosted-glass alerts with blur, transparency, and vibrant borders.</p>
+
+  <div class="actions">
+    <button class="action-btn view-btn" onclick="toggleCode('al15', this)">
+      <i class="fa-solid fa-code"></i> View Code
+    </button>
+
+    <button class="action-btn copy-btn" onclick="copyCode('al15', this)">
+      <i class="fa-solid fa-copy"></i> Copy
+    </button>
+  </div>
+
+  <pre id="al15" class="code-block"><code>&lt;div class="alert glass success"&gt;
+  &lt;i class="fa-solid fa-circle-check"&gt;&lt;/i&gt;
+  &lt;span&gt;Payment processed successfully.&lt;/span&gt;
+&lt;/div&gt;
+
+.alert.glass {
+  backdrop-filter: blur(18px);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.alert.glass.success {
+  color: #00d68f;
+  border-left: 4px solid #00d68f;
+}
+
+.alert.glass.error {
+  color: #ff5c5c;
+  border-left: 4px solid #ff5c5c;
+}</code></pre>
+</div>
+
+<!-- 16. Neon Alerts -->
+<div class="component-card" data-name="neon cyberpunk glowing alert futuristic" data-cat="filled">
+  <div class="card-top">
+    <span class="card-label">Neon Glow Alerts</span>
+    <span class="card-tag tag-trending">Cyberpunk</span>
+  </div>
+
+  <div class="card-preview dark-preview">
+    <div class="demo-alert-stack">
+      <div class="al al-neon-pink">
+        <i class="fa-solid fa-bolt al-icon"></i>
+        <div class="al-body">Realtime sync enabled.</div>
+      </div>
+
+      <div class="al al-neon-cyan">
+        <i class="fa-solid fa-wifi al-icon"></i>
+        <div class="al-body">Connected to network node.</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="card-desc">Futuristic glowing neon alerts inspired by cyberpunk interfaces.</p>
+
+  <div class="actions">
+    <button class="action-btn view-btn" onclick="toggleCode('al16', this)">
+      <i class="fa-solid fa-code"></i> View Code
+    </button>
+
+    <button class="action-btn copy-btn" onclick="copyCode('al16', this)">
+      <i class="fa-solid fa-copy"></i> Copy
+    </button>
+  </div>
+
+  <pre id="al16" class="code-block"><code>&lt;div class="alert neon-pink"&gt;
+  &lt;i class="fa-solid fa-bolt"&gt;&lt;/i&gt;
+  &lt;span&gt;Realtime sync enabled.&lt;/span&gt;
+&lt;/div&gt;
+
+.alert.neon-pink {
+  background: #120014;
+  color: #ff4dff;
+  border: 1px solid #ff4dff;
+  box-shadow:
+    0 0 10px #ff4dff,
+    0 0 30px rgba(255,77,255,0.4);
+}
+
+.alert.neon-cyan {
+  background: #00141a;
+  color: #00e5ff;
+  border: 1px solid #00e5ff;
+  box-shadow:
+    0 0 10px #00e5ff,
+    0 0 30px rgba(0,229,255,0.4);
+}</code></pre>
+</div>
+
+<!-- 17. Progress Alerts -->
+<div class="component-card" data-name="progress upload loading alert" data-cat="basic">
+  <div class="card-top">
+    <span class="card-label">Progress Alerts</span>
+    <span class="card-tag tag-popular">Interactive</span>
+  </div>
+
+  <div class="card-preview">
+    <div class="demo-alert-stack">
+
+      <div class="progress-alert">
+        <div class="progress-alert-top">
+          <span>Uploading Assets...</span>
+          <span>72%</span>
+        </div>
+
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" style="width:72%;"></div>
+        </div>
+      </div>
+
+      <div class="progress-alert success">
+        <div class="progress-alert-top">
+          <span>Deployment Complete</span>
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill success-fill" style="width:100%;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="card-desc">Modern progress alerts for uploads, deployments, syncing, and loading states.</p>
+
+  <div class="actions">
+    <button class="action-btn view-btn" onclick="toggleCode('al17', this)">
+      <i class="fa-solid fa-code"></i> View Code
+    </button>
+
+    <button class="action-btn copy-btn" onclick="copyCode('al17', this)">
+      <i class="fa-solid fa-copy"></i> Copy
+    </button>
+  </div>
+
+  <pre id="al17" class="code-block"><code>&lt;div class="progress-alert"&gt;
+  &lt;div class="progress-alert-top"&gt;
+    &lt;span&gt;Uploading Assets...&lt;/span&gt;
+    &lt;span&gt;72%&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class="progress-bar-wrap"&gt;
+    &lt;div class="progress-bar-fill"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.progress-alert {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.progress-bar-wrap {
+  width: 100%;
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 72%;
+  background: linear-gradient(90deg,#6c5ce7,#00cec9);
+  border-radius: inherit;
+}</code></pre>
+</div>
+
+<!-- 18. AI Assistant Alerts -->
+<div class="component-card" data-name="ai assistant smart alert chatbot modern" data-cat="toast">
+  <div class="card-top">
+    <span class="card-label">AI Assistant Alerts</span>
+    <span class="card-tag tag-trending">AI</span>
+  </div>
+
+  <div class="card-preview">
+    <div class="demo-alert-stack">
+
+      <div class="ai-alert">
+        <div class="ai-alert-icon">
+          <i class="fa-solid fa-sparkles"></i>
+        </div>
+
+        <div class="ai-alert-body">
+          <div class="ai-alert-title">AI Suggestion</div>
+          <div class="ai-alert-msg">
+            Your layout could be improved with more spacing between cards.
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-alert ai-alert-purple">
+        <div class="ai-alert-icon">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+
+        <div class="ai-alert-body">
+          <div class="ai-alert-title">AI Auto Fix</div>
+          <div class="ai-alert-msg">
+            Accessibility issues were detected and fixed automatically.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="card-desc">AI-inspired smart assistant notifications with futuristic gradients and soft glow.</p>
+
+  <div class="actions">
+    <button class="action-btn view-btn" onclick="toggleCode('al18', this)">
+      <i class="fa-solid fa-code"></i> View Code
+    </button>
+
+    <button class="action-btn copy-btn" onclick="copyCode('al18', this)">
+      <i class="fa-solid fa-copy"></i> Copy
+    </button>
+  </div>
+
+  <pre id="al18" class="code-block"><code>&lt;div class="ai-alert"&gt;
+  &lt;div class="ai-alert-icon"&gt;
+    &lt;i class="fa-solid fa-sparkles"&gt;&lt;/i&gt;
+  &lt;/div&gt;
+
+  &lt;div class="ai-alert-body"&gt;
+    &lt;div class="ai-alert-title"&gt;AI Suggestion&lt;/div&gt;
+    &lt;div class="ai-alert-msg"&gt;
+      Improve spacing between cards.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.ai-alert {
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(108,92,231,0.15),
+      rgba(0,206,201,0.1)
+    );
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.ai-alert-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg,#6c5ce7,#00cec9);
+  color: #fff;
+}</code></pre>
+</div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+    <button class="filter-btn" onclick="filterCards('basic', this)">Basic</button>
+    <button class="filter-btn" onclick="filterCards('outlined', this)">Outlined</button>
+    <button class="filter-btn" onclick="filterCards('filled', this)">Filled</button>
+    <button class="filter-btn" onclick="filterCards('toast', this)">Toast</button>
+    <button class="filter-btn" onclick="filterCards('banner', this)">Banner</button>
+    <div class="filter-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Filter alerts..." oninput="liveFilter(this.value)" />
+    </div>
+  </div>
 
       <div class="component-card">
         <h3>Success Alert</h3>
