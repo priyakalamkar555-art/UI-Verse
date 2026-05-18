@@ -266,11 +266,11 @@
           <div class="calendar-header">
 
             <div>
-              <h3>August 2026</h3>
+              <h3 id="mainCalendarTitle">August 2026</h3>
               <p>Your monthly schedule</p>
             </div>
 
-            <button>
+            <button type="button" aria-label="Calendar options">
               <i class="fa-solid fa-ellipsis"></i>
             </button>
 
@@ -288,42 +288,7 @@
 
           </div>
 
-          <div class="calendar-dates">
-
-            <span class="mute">30</span>
-            <span class="mute">31</span>
-
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-
-            <span>6</span>
-            <span>7</span>
-            <span class="active">8</span>
-            <span>9</span>
-            <span>10</span>
-            <span>11</span>
-            <span>12</span>
-
-            <span>13</span>
-            <span>14</span>
-            <span>15</span>
-            <span>16</span>
-            <span class="event">17</span>
-            <span>18</span>
-            <span>19</span>
-
-            <span>20</span>
-            <span>21</span>
-            <span>22</span>
-            <span>23</span>
-            <span>24</span>
-            <span>25</span>
-            <span>26</span>
-
-          </div>
+          <div class="calendar-dates" id="mainCalendarDates"></div>
 
           <button class="calendar-btn">
             View Schedule
@@ -400,37 +365,19 @@
 
           <div class="mini-header">
 
-            <button>
+            <button type="button" id="prevMonthBtn" aria-label="Previous month">
               <i class="fa-solid fa-chevron-left"></i>
             </button>
 
-            <h3>September</h3>
+            <h3 id="miniCalendarTitle">September</h3>
 
-            <button>
+            <button type="button" id="nextMonthBtn" aria-label="Next month">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
 
           </div>
 
-          <div class="mini-grid">
-
-            <span>S</span>
-            <span>M</span>
-            <span>T</span>
-            <span>W</span>
-            <span>T</span>
-            <span>F</span>
-            <span>S</span>
-
-            <span></span>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span class="today">4</span>
-            <span>5</span>
-            <span>6</span>
-
-          </div>
+          <div class="mini-grid" id="miniCalendarGrid"></div>
 
         </div>
 
@@ -662,6 +609,135 @@
       );
 
     });
+
+    // CALENDAR RENDERING
+
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    ];
+
+    const calendarState = {
+      viewDate: new Date(),
+      today: new Date()
+    };
+
+    calendarState.today.setHours(0, 0, 0, 0);
+
+    const mainCalendarTitle =
+      document.getElementById('mainCalendarTitle');
+    const mainCalendarDates =
+      document.getElementById('mainCalendarDates');
+    const miniCalendarTitle =
+      document.getElementById('miniCalendarTitle');
+    const miniCalendarGrid =
+      document.getElementById('miniCalendarGrid');
+    const prevMonthBtn =
+      document.getElementById('prevMonthBtn');
+    const nextMonthBtn =
+      document.getElementById('nextMonthBtn');
+
+    function renderCalendarGrid(target, date, isMini = false) {
+
+      target.innerHTML = '';
+
+      const year = date.getFullYear();
+      const month = date.getMonth();
+      const firstDayIndex = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const daysInPreviousMonth =
+        new Date(year, month, 0).getDate();
+
+      const totalCells = 42;
+
+      for (let index = 0; index < totalCells; index += 1) {
+
+        const cell = document.createElement('span');
+        const dayNumber = index - firstDayIndex + 1;
+
+        if (index < firstDayIndex) {
+
+          const previousDay =
+            daysInPreviousMonth - firstDayIndex + index + 1;
+
+          cell.textContent = previousDay;
+          cell.classList.add('mute');
+
+        } else if (dayNumber <= daysInMonth) {
+
+          const cellDate = new Date(year, month, dayNumber);
+          cell.textContent = dayNumber;
+
+          if (
+            cellDate.getTime() === calendarState.today.getTime()
+          ) {
+            cell.classList.add(isMini ? 'today' : 'active');
+          }
+
+          if (dayNumber === 17) {
+            cell.classList.add('event');
+          }
+
+        } else {
+
+          const nextMonthDay = dayNumber - daysInMonth;
+          cell.textContent = nextMonthDay;
+          cell.classList.add('mute');
+
+        }
+
+        target.appendChild(cell);
+
+      }
+
+    }
+
+    function renderCalendar() {
+
+      const year = calendarState.viewDate.getFullYear();
+      const month = calendarState.viewDate.getMonth();
+
+      const currentLabel = `${monthNames[month]} ${year}`;
+
+      mainCalendarTitle.textContent = currentLabel;
+      miniCalendarTitle.textContent = currentLabel;
+
+      renderCalendarGrid(mainCalendarDates, calendarState.viewDate);
+      renderCalendarGrid(miniCalendarGrid, calendarState.viewDate, true);
+
+    }
+
+    function shiftMonth(offset) {
+
+      calendarState.viewDate = new Date(
+        calendarState.viewDate.getFullYear(),
+        calendarState.viewDate.getMonth() + offset,
+        1
+      );
+
+      renderCalendar();
+
+    }
+
+    prevMonthBtn.addEventListener('click', () => {
+      shiftMonth(-1);
+    });
+
+    nextMonthBtn.addEventListener('click', () => {
+      shiftMonth(1);
+    });
+
+    renderCalendar();
 
   </script>
 
