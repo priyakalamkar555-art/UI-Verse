@@ -102,6 +102,10 @@ const Bootstrap = {
       UIverse.register('Download', Download);
     }
 
+    if (typeof Recent !== 'undefined') {
+      UIverse.register('Recent', Recent);
+    }
+
     if (typeof TutorialMode !== 'undefined') {
       UIverse.register('TutorialMode', TutorialMode);
     }
