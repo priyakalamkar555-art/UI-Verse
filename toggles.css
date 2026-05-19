@@ -1107,3 +1107,165 @@
   }
 
 }
+
+.toggle-cyberpunk label {
+  width: 64px;
+  height: 28px;
+  background: #020617;
+  border: 2px solid #00f2fe;
+  clip-path: polygon(0 0, 85% 0, 100% 35%, 100% 100%, 15% 100%, 0 65%);
+  transition: all 0.3s ease;
+}
+.toggle-cyberpunk label::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #00f2fe;
+  clip-path: polygon(0 0, 85% 0, 100% 35%, 100% 100%, 15% 100%, 0 65%);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 0 10px #00f2fe;
+}
+.toggle-cyberpunk input:checked + label {
+  border-color: #ff007f;
+  background: rgba(255, 0, 127, 0.1);
+}
+.toggle-cyberpunk input:checked + label::after {
+  transform: translateX(36px);
+  background: #ff007f;
+  box-shadow: 0 0 10px #ff007f;
+}
+
+.toggle-3d label {
+  width: 60px;
+  height: 32px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.8), 0 1px 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+.toggle-3d label::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #64748b 0%, #334155 100%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), inset 0 2px 2px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.toggle-3d input:checked + label {
+  background: linear-gradient(180deg, #059669 0%, #064e3b 100%);
+}
+.toggle-3d input:checked + label::after {
+  transform: translateX(28px);
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+}
+
+.toggle-liquid label {
+  width: 60px;
+  height: 30px;
+  border-radius: 999px;
+  background: #334155;
+  transition: background 0.4s ease;
+}
+.toggle-liquid label::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.toggle-liquid input:checked + label {
+  background: #f59e0b;
+}
+.toggle-liquid input:checked + label::after {
+  left: calc(100% - 27px);
+  animation: jelly-bounce-css 0.4s linear;
+}
+@keyframes jelly-bounce-css {
+  0% { transform: scaleX(1); }
+  30% { transform: scaleX(1.3) scaleY(0.7); }
+  60% { transform: scaleX(0.8) scaleY(1.2); }
+  100% { transform: scaleX(1); }
+}
+
+.toggle-solar label {
+  width: 62px;
+  height: 32px;
+  border-radius: 999px;
+  background: #38bdf8;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+.toggle-solar .solar-stars {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  top: 8px;
+  left: 20px;
+  opacity: 0;
+  box-shadow: 10px 4px 0 #fff, 6px 12px 0 #fff, 18px 8px 0 #fff;
+  transition: all 0.4s ease;
+}
+.toggle-solar label::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #facc15;
+  box-shadow: 0 0 10px #facc15;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.toggle-solar input:checked + label {
+  background: #0f172a;
+}
+.toggle-solar input:checked + label .solar-stars {
+  opacity: 1;
+}
+.toggle-solar input:checked + label::after {
+  transform: translateX(30px);
+  background: #e2e8f0;
+  box-shadow: 0 0 10px #e2e8f0, inset -5px -2px 0 #94a3b8;
+}
+
+.toggle-arcade label {
+  width: 58px;
+  height: 24px;
+  border-radius: 6px;
+  background: #27272a;
+  border: 2px solid #3f3f46;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+.toggle-arcade .arcade-knob {
+  position: absolute;
+  top: -6px;
+  left: 6px;
+  width: 14px;
+  height: 32px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: bottom center;
+  transform: rotate(-15deg);
+}
+.toggle-arcade input:checked + label .arcade-knob {
+  left: calc(100% - 20px);
+  background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+  transform: rotate(15deg);
+}
