@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
 
   <!-- Improved CSP -->
   <meta http-equiv="Content-Security-Policy"
@@ -19,7 +19,7 @@
       script-src 'self' https:;
     ">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>FAQ - UIverse</title>
 
@@ -30,75 +30,63 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
+  >
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="faq.css" />
-  <link rel="stylesheet" href="css/main.css" />
-
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="shared-sidebar.css">
   <link rel="stylesheet" href="shared-page.css">
   <link rel="stylesheet" href="cards.css">
   <link rel="stylesheet" href="playground.css">
-  <link rel="stylesheet" href="shared-sidebar.css">
-
-  
+  <link rel="stylesheet" href="faq.css">
 </head>
 
 <body>
 
   <div class="container">
     <header class="navbar" id="navbar">
-  <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle Menu">
-    <i class="fa-solid fa-bars"></i>
-  </button>
+      <button type="button" class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-  <div class="logo">UIverse</div>
+      <div class="logo">UIverse</div>
 
-  <div class="search-bar">
-    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input type="text" id="searchInput" placeholder="Search components..." onkeydown="handleSearch(event)" />
-    <kbd class="search-kbd">⌘K</kbd>
-  </div>
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search components..." onkeydown="handleSearch(event)">
+        <kbd class="search-kbd">⌘K</kbd>
+      </div>
 
-  <div class="nav-right">
-    <button class="nav-btn outline-nav-btn">
-      <i class="fa-solid fa-plus"></i> Add Component
-    </button>
-    <a href="contributorss.html">
-    <button class="nav-btn primary-nav-btn">
-      Contributors
-    </button>
-    </a>
-    <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
-      <i class="fa-solid fa-moon"></i>
-    </button>
-  </div>
-</header>
-<!-- ================= SIDEBAR ================= -->
-<aside class="sidebar" id="sidebar">
-  <div class="sidebar-brand">
-    <span class="brand-icon">⬡</span>
-    <span class="brand-text">UIverse</span>
-  </div>
+      <div class="nav-right">
+        <button type="button" class="nav-btn outline-nav-btn">
+          <i class="fa-solid fa-plus"></i> Add Component
+        </button>
+        <a href="contributorss.html" class="nav-btn primary-nav-btn">
+          Contributors
+        </a>
+        <button type="button" id="darkModeToggle" class="theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </header>
 
-<!-- ================= SIDEBAR ================= -->
-<aside class="sidebar" id="sidebar">
-  <div class="sidebar-brand">
-    <span class="brand-icon">⬡</span>
-    <span class="brand-text">UIverse</span>
-  </div>
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">⬡</span>
+        <span class="brand-text">UIverse <span class="brand-badge">V2</span></span>
+      </div>
 
           <nav class="sidebar-nav">
     <ul>
-      <li class="active">
+      <li>
         <a href="index.html">
           <i class="fa-solid fa-house"></i>
           <span>Home</span>
@@ -224,10 +212,10 @@
           <span>E-commerce</span>
         </a>
       </li>
-      <li class="active">
+      <li>
         <a href="files.html">
           <i class="fa-solid fa-file-arrow-up"></i>
-          <span>Drag & Drop</span>
+          <span>Drag &amp; Drop</span>
         </a>
       </li>
       <li>
@@ -386,7 +374,7 @@
           <span>Documentation</span>
         </a>
       </li>
-      <li>
+      <li class="active">
         <a href="faq.html">
           <i class="fa-solid fa-circle-question"></i>
           <span>Faq</span>
@@ -401,44 +389,39 @@
     </ul>
   </nav>
 
- <div class="socials">
-  <a href="https://github.com/yourusername" target="_blank" title="GitHub">
-    <i class="fab fa-github"></i>
-  </a>
-
-  <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn">
-    <i class="fab fa-linkedin"></i>
-  </a>
-
-  <a href="https://twitter.com/yourusername" target="_blank" title="Twitter">
-    <i class="fab fa-x-twitter"></i>
-  </a>
-</div>
+  <div class="sidebar-footer">
+    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter" title="Twitter">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+  </div>
 </aside>
 <!-- ================= SIDEBAR BACKDROP ================= -->
 <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
     <!-- MAIN -->
-    <main class="main">
+    <div class="main-content">
 
       <!-- HERO -->
-      <section class="faq-hero">
-
-        <div class="faq-badge">
-          <i class="fa-solid fa-circle-question"></i>
-          FAQ
+      <div class="page-hero">
+        <div class="page-hero-left">
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>FAQ</span>
+          </div>
+          <h1 class="page-title">Frequently Asked Questions</h1>
+          <p class="page-desc">Find answers to common questions about UIverse, components, usage, setup, and contributions.</p>
+          <div class="page-meta">
+            <span class="meta-badge"><i class="fa-solid fa-circle-question"></i> FAQ Helpdesk</span>
+            <span class="meta-badge"><i class="fa-solid fa-shield-halved"></i> CSP Secure</span>
+          </div>
         </div>
-
-        <h1>
-          Frequently Asked
-          <span>Questions</span>
-        </h1>
-
-        <p>
-          Find answers to common questions about UIverse,
-          components, usage, setup, and contributions.
-        </p>
-
-      </section>
+      </div>
 
       <!-- FAQ ITEMS -->
       <section class="faq-section">
@@ -460,7 +443,7 @@
 
         </div>
 
-        <div class="faq-item active">
+        <div class="faq-item">
 
           <div class="faq-question">
             <h3>Is UIverse free to use?</h3>
@@ -476,7 +459,7 @@
 
         </div>
 
-        <div class="faq-item active">
+        <div class="faq-item">
 
           <div class="faq-question">
             <h3>Do I need any framework?</h3>
@@ -492,7 +475,7 @@
 
         </div>
 
-        <div class="faq-item active">
+        <div class="faq-item">
 
           <div class="faq-question">
             <h3>Can I contribute components?</h3>
@@ -508,7 +491,7 @@
 
         </div>
 
-        <div class="faq-item active">
+        <div class="faq-item">
 
           <div class="faq-question">
             <h3>How do I start using UIverse?</h3>
@@ -523,7 +506,7 @@
           </div>
 
         </div>
-        <div class="faq-item active">
+        <div class="faq-item">
   <div class="faq-question">
     <h3>Does UIverse support responsive design?</h3>
     <i class="fa-solid fa-chevron-down"></i>
@@ -536,63 +519,63 @@
   </div>
 </div>
 
-<div class="faq-item active">
-  <div class="faq-question">
-    <h3>Can I customize the components?</h3>
-    <i class="fa-solid fa-chevron-down"></i>
-  </div>
-  <div class="faq-answer">
-    <p>
-      Absolutely! You can override styles with your own CSS or extend
-      components to match your project’s theme and branding.
-    </p>
-  </div>
-</div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I customize the components?</h3>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Absolutely! You can override styles with your own CSS or extend
+              components to match your project’s theme and branding.
+            </p>
+          </div>
+        </div>
 
-<div class="faq-item active">
-  <div class="faq-question">
-    <h3>Is UIverse compatible with frameworks?</h3>
-    <i class="fa-solid fa-chevron-down"></i>
-  </div>
-  <div class="faq-answer">
-    <p>
-      Yes, UIverse works seamlessly with frameworks like React, Angular,
-      and Vue, but it also functions perfectly with plain HTML, CSS, and
-      JavaScript.
-    </p>
-  </div>
-</div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is UIverse compatible with frameworks?</h3>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes, UIverse works seamlessly with frameworks like React, Angular,
+              and Vue, but it also functions perfectly with plain HTML, CSS, and
+              JavaScript.
+            </p>
+          </div>
+        </div>
 
-<div class="faq-item active">
-  <div class="faq-question">
-    <h3>Where can I find documentation?</h3>
-    <i class="fa-solid fa-chevron-down"></i>
-  </div>
-  <div class="faq-answer">
-    <p>
-      You can access detailed documentation and examples on the official
-      UIverse website or GitHub repository.
-    </p>
-  </div>
-</div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Where can I find documentation?</h3>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              You can access detailed documentation and examples on the official
+              UIverse website or GitHub repository.
+            </p>
+          </div>
+        </div>
 
-<div class="faq-item active">
-  <div class="faq-question">
-    <h3>Does UIverse provide accessibility support?</h3>
-    <i class="fa-solid fa-chevron-down"></i>
-  </div>
-  <div class="faq-answer">
-    <p>
-      Yes, components are designed with accessibility in mind, following
-      ARIA guidelines and ensuring usability for all users.
-    </p>
-  </div>
-</div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Does UIverse provide accessibility support?</h3>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes, components are designed with accessibility in mind, following
+              ARIA guidelines and ensuring usability for all users.
+            </p>
+          </div>
+        </div>
 
 
       </section>
 
-    </main>
+    </div>
 
   </div>
   <!-- FOOTER -->
@@ -602,9 +585,9 @@
       <h2 class="footer-logo">⬡ UIverse</h2>
       <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
       <div class="socials">
-        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -636,7 +619,7 @@
       <h3>Stay Updated</h3>
       <p>Get notified when new components drop.</p>
       <div class="newsletter-form">
-        <input type="email" placeholder="your@email.com" />
+        <input type="email" placeholder="your@email.com">
         <button type="button">Subscribe</button>
       </div>
     </div>
