@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Badges — UIverse</title>
 
   <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
   <!-- Primary CSS Stylesheets -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="shared-sidebar.css">
   <link rel="stylesheet" href="shared-page.css">
   <link rel="stylesheet" href="badges.css">
-  <link rel="stylesheet" href="shared-sidebar.css">
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="Badges — UIverse">
@@ -27,10 +24,10 @@
 <body>
 
 <!-- ================= SIDEBAR ================= -->
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar" id="sidebar" aria-label="Sidebar Navigation">
   <div class="sidebar-brand">
     <span class="brand-icon">⬡</span>
-    <span class="brand-text">UIverse <span style="font-size: 9px; background: linear-gradient(135deg, #eb6835, #7b61ff); color: white; padding: 1px 6px; border-radius: 10px; font-weight: 800; margin-left: 4px; letter-spacing: 0.5px; vertical-align: middle; box-shadow: 0 0 8px rgba(235,104,53,0.3);">V2</span></span>
+    <span class="brand-text">UIverse <span class="brand-badge">V2</span></span>
   </div>
 
   <nav class="sidebar-nav">
@@ -170,7 +167,7 @@
       <li>
         <a href="files.html">
           <i class="fa-solid fa-file-arrow-up"></i>
-          <span>Drag & Drop</span>
+          <span>Drag &amp; Drop</span>
         </a>
       </li>
       <li>
@@ -326,7 +323,7 @@
 
 <!-- ================= NAVBAR ================= -->
 <header class="navbar" id="navbar">
-  <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle Menu">
+  <button type="button" class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle Sidebar Navigation">
     <i class="fa-solid fa-bars"></i>
   </button>
 
@@ -334,25 +331,25 @@
 
   <div class="search-bar">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input type="text" id="searchInput" placeholder="Search components..." />
+    <input type="text" id="searchInput" placeholder="Search components...">
   </div>
 
   <div class="nav-right">
-    <button class="nav-btn outline-nav-btn">
+    <button type="button" class="nav-btn outline-nav-btn">
       <i class="fa-solid fa-plus"></i> Add Component
     </button>
-    <button class="nav-btn primary-nav-btn">
+    <button type="button" class="nav-btn primary-nav-btn">
       <i class="fa-solid fa-bookmark"></i> My Collection
     </button>
-    <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
+    <button type="button" id="darkModeToggle" class="theme-toggle" title="Toggle Theme" aria-label="Toggle Dark Mode">
       <i class="fa-solid fa-moon"></i>
     </button>
   </div>
 </header>
 
 <!-- ================= MAIN CONTENT ================= -->
-<main class="main-home">
-  
+<div class="main-content">
+
   <!-- Page Hero -->
   <div class="page-hero">
     <div class="page-hero-left">
@@ -365,7 +362,7 @@
       <p class="page-desc">Small but powerful status indicators, notifications, count pills, and collectible badges optimized for clean interfaces.</p>
       <div class="page-meta">
         <span class="meta-badge"><i class="fa-solid fa-tags"></i> 14 Badges</span>
-        <span class="meta-badge"><i class="fa-solid fa-bolt"></i> CSS & HTML</span>
+        <span class="meta-badge"><i class="fa-solid fa-bolt"></i> CSS &amp; HTML</span>
       </div>
     </div>
   </div>
@@ -373,20 +370,20 @@
   <!-- Filter Bar -->
   <div class="filter-bar">
     <div class="filter-bar-left">
-      <button class="filter-btn active" onclick="filterBadges('all', this)">All Badges</button>
-      <button class="filter-btn" onclick="filterBadges('status', this)">Status Indicators</button>
-      <button class="filter-btn" onclick="filterBadges('notification', this)">Notifications</button>
-      <button class="filter-btn" onclick="filterBadges('premium', this)">Premium Glow</button>
+      <button type="button" class="filter-btn active" onclick="filterBadges('all', this)">All Badges</button>
+      <button type="button" class="filter-btn" onclick="filterBadges('status', this)">Status Indicators</button>
+      <button type="button" class="filter-btn" onclick="filterBadges('notification', this)">Notifications</button>
+      <button type="button" class="filter-btn" onclick="filterBadges('premium', this)">Premium Glow</button>
     </div>
     <div class="filter-search">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" placeholder="Search badges..." oninput="liveFilter(this.value)" />
+      <input type="text" placeholder="Search badges..." oninput="liveFilter(this.value)">
     </div>
   </div>
 
   <!-- Cards Grid -->
   <div class="cards-grid">
-    
+
     <!-- 1. Soft Status Badges -->
     <div class="component-card" data-name="soft status badges success warning danger" data-cat="status">
       <div class="card-top">
@@ -402,10 +399,10 @@
       </div>
       <p class="card-desc">Clean, readable modern pill badges with transparent alert backgrounds suited for table headers and system cards.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-soft-badges', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-soft-badges', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-soft-badges', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-soft-badges', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -424,15 +421,15 @@
         <div class="badge-profile">
           <div class="badge-avatar">D</div>
           <span class="badge-profile-name">Dipanita</span>
-          <button class="badge-dismiss-btn" aria-label="Remove">&times;</button>
+          <button type="button" class="badge-dismiss-btn" aria-label="Remove">&times;</button>
         </div>
       </div>
       <p class="card-desc">Elegant active category pill that embeds a user profile initial or photo, featuring a micro-interactive close button.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-profile-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-profile-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-profile-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-profile-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -454,10 +451,10 @@
       </div>
       <p class="card-desc">High-contrast futuristic tag with intense cyan shadows and fluorescent borders built for gamers and dashboard terminals.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-neon-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-neon-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-neon-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-neon-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -475,10 +472,10 @@
       </div>
       <p class="card-desc">Backdrop-filtered ice glass panel with pure white translucent thin borders, floating elegantly over any background grid.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-glass-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-glass-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-glass-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-glass-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -501,10 +498,10 @@
       </div>
       <p class="card-desc">Highly interactive indicator utilizing a double-ring keyframe opacity pulse animation to alert users of live status.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-pulse-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-pulse-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-pulse-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-pulse-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -528,10 +525,10 @@
       </div>
       <p class="card-desc">Floating badge styled absolute positioning, optimized for high contrast warning and messaging notification counts.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-count-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-count-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-count-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-count-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -552,10 +549,10 @@
       </div>
       <p class="card-desc">Industrial cyberpunk tag styled with left/right terminal brackets and a computer console font overlay.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-cyber-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-cyber-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-cyber-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-cyber-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -573,10 +570,10 @@
       </div>
       <p class="card-desc">Bold outline yellow brutalist label carrying a massive 3D flat black offset drop-shadow. Great for e-commerce.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-retro-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-retro-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-retro-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-retro-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -594,10 +591,10 @@
       </div>
       <p class="card-desc">Polished premium gold foil texture with micro angle lighting reflections, ideal for rankings and high tier medals.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-metallic-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-metallic-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-metallic-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-metallic-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -617,10 +614,10 @@
       </div>
       <p class="card-desc">Smooth deep orange to neon magenta gradient background utilizing beautiful white typography and trophy icons.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-trophy-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-trophy-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-trophy-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-trophy-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -635,15 +632,15 @@
         <span class="card-label">Holographic Liquid Badge</span>
         <span class="card-tag tag-new">Brand New</span>
       </div>
-      <div class="card-preview">
+      <div class="card-preview dark-preview">
         <span class="badge-holographic">ULTRA ACCORD</span>
       </div>
       <p class="card-desc">Stunning multi-layer dynamic fluid color shift badge. Its iridescent surface dynamically alters gradients on hover.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-holographic-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-holographic-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-holographic-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-holographic-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -656,7 +653,7 @@
         <span class="card-label">Cosmic Shimmer Border Badge</span>
         <span class="card-tag tag-new">Brand New</span>
       </div>
-      <div class="card-preview">
+      <div class="card-preview dark-preview">
         <span class="badge-cosmic">
           <span class="cosmic-glow"></span>
           COSMIC LEGEND
@@ -664,10 +661,10 @@
       </div>
       <p class="card-desc">Highly animated celestial cosmic label featuring an infinite rotating starry gold border and deep violet aura.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-cosmic-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-cosmic-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-cosmic-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-cosmic-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -685,17 +682,17 @@
       </div>
       <div class="card-preview">
         <span class="badge-counter-wrap">
-          <button onclick="changeBadgeCount(-1)" class="badge-count-btn">-</button>
+          <button type="button" onclick="changeBadgeCount(-1)" class="badge-count-btn">-</button>
           <span id="badge-count-val" class="badge-count-value">12 ALERTS</span>
-          <button onclick="changeBadgeCount(1)" class="badge-count-btn">+</button>
+          <button type="button" onclick="changeBadgeCount(1)" class="badge-count-btn">+</button>
         </span>
       </div>
       <p class="card-desc">A highly innovative status tag containing custom plus and minus click controllers for managing real-time count metrics.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-counter-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-counter-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-counter-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-counter-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -712,7 +709,7 @@
         <span class="card-label">Cybertech Spinner Badge</span>
         <span class="card-tag tag-new">Brand New</span>
       </div>
-      <div class="card-preview">
+      <div class="card-preview dark-preview">
         <span class="badge-cyber-spinner">
           <span class="spinner-ring"></span>
           <span class="badge-spinner-text">SECURE</span>
@@ -720,10 +717,10 @@
       </div>
       <p class="card-desc">A micro-spinner tag presenting an infinite rotating gradient border for security and validation checkpoints.</p>
       <div class="actions">
-        <button class="view-btn" onclick="toggleCode('code-spinner-badge', this)">
+        <button type="button" class="view-btn" onclick="toggleCode('code-spinner-badge', this)">
           <i class="fa-solid fa-code"></i> View Code
         </button>
-        <button class="copy-btn" onclick="copyCode('code-spinner-badge', this)">
+        <button type="button" class="copy-btn" onclick="copyCode('code-spinner-badge', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
@@ -734,7 +731,7 @@
     </div>
 
   </div>
-</main>
+</div>
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
@@ -743,9 +740,9 @@
       <h2 class="footer-logo"><i class="fa-solid fa-cube"></i> UIverse</h2>
       <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
       <div class="socials">
-        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="Twitter" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
       </div>
     </div>
 
@@ -783,7 +780,7 @@
       <h3>Stay Updated</h3>
       <p>Get notified when new components drop.</p>
       <div class="newsletter-form">
-        <input type="email" placeholder="your@email.com" />
+        <input type="email" placeholder="your@email.com">
         <button type="button">Subscribe</button>
       </div>
     </div>

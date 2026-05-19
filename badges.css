@@ -3,33 +3,84 @@
    Premium Glassmorphic Design Tokens & Component Library
    =================================================== */
 
+/* ---------- LAYOUT CORRECTIONS ---------- */
+.main-content {
+  margin-left: var(--sidebar-w);
+  margin-top: var(--navbar-h);
+  padding: 48px 56px;
+  min-height: calc(100vh - var(--navbar-h));
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: var(--body-bg);
+  transition: margin-left var(--transition);
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    margin-left: 0;
+    padding: 32px 24px;
+  }
+}
+
+/* Sidebar V2 Brand Badge */
+.brand-badge {
+  font-size: 10px;
+  background: linear-gradient(135deg, var(--accent) 0%, #ff8c00 100%);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 6px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Ambient space background gradients on dark mode */
+body.dark-mode {
+  --bg-primary: #070913;
+  --bg-secondary: rgb(13 16 31 / 45%);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border: rgb(255 255 255 / 5%);
+
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgb(235 104 53 / 5%) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgb(108 92 231 / 4%) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+/* Page Hero Premium Glowing Style */
+.page-hero {
+  background: linear-gradient(135deg, rgb(235 104 53 / 10%) 0%, rgb(108 92 231 / 8%) 50%, rgb(13 16 31 / 50%) 100%) !important;
+  border: 1px solid rgb(255 255 255 / 5%) !important;
+  box-shadow: 0 20px 40px rgb(0 0 0 / 30%) !important;
+  backdrop-filter: blur(12px);
+}
+
 /* -----------------------------------------
    Global Variables & Color Palettes
    ----------------------------------------- */
 :root {
-  --badge-font: 'Outfit', 'Inter', system-ui, sans-serif;
+  --badge-font: "Outfit", "Inter", system-ui, sans-serif;
   
   /* Brand accents */
   --accent-primary: #eb6835;
   --accent-secondary: #ff8e53;
   --accent-gradient: linear-gradient(135deg, #eb6835, #ff8e53);
-
   /* Status Colors */
   --color-success: #10b981;
-  --color-success-bg: rgba(16, 185, 129, 0.08);
-  --color-success-border: rgba(16, 185, 129, 0.2);
-
+  --color-success-bg: rgb(16 185 129 / 8%);
+  --color-success-border: rgb(16 185 129 / 20%);
   --color-warning: #f59e0b;
-  --color-warning-bg: rgba(245, 158, 11, 0.08);
-  --color-warning-border: rgba(245, 158, 11, 0.2);
-
+  --color-warning-bg: rgb(245 158 11 / 8%);
+  --color-warning-border: rgb(245 158 11 / 20%);
   --color-danger: #ef4444;
-  --color-danger-bg: rgba(239, 68, 68, 0.08);
-  --color-danger-border: rgba(239, 68, 68, 0.2);
-
+  --color-danger-bg: rgb(239 68 68 / 8%);
+  --color-danger-border: rgb(239 68 68 / 20%);
   --color-info: #06b6d4;
-  --color-info-bg: rgba(6, 182, 212, 0.08);
-  --color-info-border: rgba(6, 182, 212, 0.2);
+  --color-info-bg: rgb(6 182 212 / 8%);
+  --color-info-border: rgb(6 182 212 / 20%);
 }
 
 /* Page Layout Overrides */
@@ -86,10 +137,11 @@
   color: var(--color-success);
   border-color: var(--color-success-border);
 }
+
 .badge-soft-success:hover {
   background: var(--color-success);
   color: #fff;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 4px 12px rgb(16 185 129 / 20%);
 }
 
 .badge-soft-warning {
@@ -97,10 +149,11 @@
   color: var(--color-warning);
   border-color: var(--color-warning-border);
 }
+
 .badge-soft-warning:hover {
   background: var(--color-warning);
   color: #fff;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 4px 12px rgb(245 158 11 / 20%);
 }
 
 .badge-soft-danger {
@@ -108,10 +161,11 @@
   color: var(--color-danger);
   border-color: var(--color-danger-border);
 }
+
 .badge-soft-danger:hover {
   background: var(--color-danger);
   color: #fff;
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+  box-shadow: 0 4px 12px rgb(239 68 68 / 20%);
 }
 
 /* -----------------------------------------
@@ -132,14 +186,14 @@
 }
 
 body.dark-mode .badge-profile {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 5%);
+  border-color: rgb(255 255 255 / 10%);
   color: #f1f5f9;
 }
 
 .badge-profile:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 5%);
 }
 
 .badge-avatar {
@@ -177,25 +231,26 @@ body.dark-mode .badge-profile {
    3. Cyber Neon Glow Badge
    ----------------------------------------- */
 .badge-neon {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 12px;
   font-weight: 900;
   color: #00f0ff;
-  background: rgba(0, 240, 255, 0.05);
+  background: rgb(0 240 255 / 5%);
   border: 2px solid #00f0ff;
   padding: 6px 14px;
   border-radius: 4px;
   letter-spacing: 2px;
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.1),
-              inset 0 0 8px rgba(0, 240, 255, 0.1);
-  text-shadow: 0 0 4px rgba(0, 240, 255, 0.5);
+  box-shadow:
+    0 0 10px rgb(0 240 255 / 10%),
+    inset 0 0 8px rgb(0 240 255 / 10%);
+  text-shadow: 0 0 4px rgb(0 240 255 / 50%);
   transition: all 0.3s ease;
 }
 
 .badge-neon:hover {
   background: #00f0ff;
   color: #0f172a;
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 20px rgb(0 240 255 / 40%);
   text-shadow: none;
   transform: scale(1.05);
 }
@@ -208,14 +263,13 @@ body.dark-mode .badge-profile {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.95);
-  background: rgba(255, 255, 255, 0.07);
+  color: rgb(255 255 255 / 95%);
+  background: rgb(255 255 255 / 7%);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgb(255 255 255 / 15%);
   padding: 8px 16px;
   border-radius: 12px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 30%);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -224,12 +278,12 @@ body.dark-mode .badge-profile {
 
 .badge-glass i {
   color: #ffd700;
-  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
+  filter: drop-shadow(0 0 4px rgb(255 215 0 / 50%));
 }
 
 .badge-glass:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgb(255 255 255 / 15%);
+  border-color: rgb(255 255 255 / 25%);
   transform: translateY(-2px);
 }
 
@@ -242,18 +296,18 @@ body.dark-mode .badge-profile {
   font-weight: 800;
   color: #fff;
   background: #0f172a;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgb(255 255 255 / 10%);
   padding: 6px 16px;
   border-radius: 99px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgb(0 0 0 / 5%);
 }
 
 body.dark-mode .badge-pulse {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgb(255 255 255 / 3%);
 }
 
 .pulse-dot {
@@ -265,7 +319,7 @@ body.dark-mode .badge-pulse {
 }
 
 .pulse-dot::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: 50%;
@@ -278,6 +332,7 @@ body.dark-mode .badge-pulse {
     transform: scale(1);
     opacity: 1;
   }
+
   100% {
     transform: scale(3.5);
     opacity: 0;
@@ -315,8 +370,8 @@ body.dark-mode .bell-container {
   align-items: center;
   justify-content: center;
   padding: 0 5px;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.3);
+  border: 2px solid #fff;
+  box-shadow: 0 2px 10px rgb(239 68 68 / 30%);
   animation: bounce-alert 2s infinite ease-in-out;
 }
 
@@ -333,23 +388,23 @@ body.dark-mode .badge-count {
    7. Cyberpunk Bracket Badge
    ----------------------------------------- */
 .badge-cyber-bracket {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 12px;
   font-weight: 700;
   color: #f43f5e;
   border-left: 3px solid #f43f5e;
   border-right: 3px solid #f43f5e;
   padding: 4px 12px;
-  background: rgba(244, 63, 94, 0.05);
+  background: rgb(244 63 94 / 5%);
   letter-spacing: 1px;
   transition: all 0.3s ease;
 }
 
 .badge-cyber-bracket:hover {
   background: #f43f5e;
-  color: #ffffff;
+  color: #fff;
   transform: skewX(-10deg);
-  box-shadow: 4px 4px 0 rgba(244, 63, 94, 0.2);
+  box-shadow: 4px 4px 0 rgb(244 63 94 / 20%);
 }
 
 /* -----------------------------------------
@@ -392,24 +447,25 @@ body.dark-mode .badge-count {
   color: #5d4000;
   background: linear-gradient(135deg, #ffe082 0%, #ffb300 50%, #ffa000 100%);
   border: 1px solid #ffb300;
-  box-shadow: 0 4px 15px rgba(255, 179, 0, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 4px 15px rgb(255 179 0 / 20%),
+    inset 0 1px 0 rgb(255 255 255 / 40%);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  text-shadow: 0 1px 0 rgb(255 255 255 / 40%);
   position: relative;
   overflow: hidden;
 }
 
 .badge-metallic::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 50%), transparent);
   transition: all 0.6s ease;
 }
 
@@ -429,7 +485,7 @@ body.dark-mode .badge-count {
   background: linear-gradient(135deg, #f43f5e, #ec4899);
   padding: 8px 16px;
   border-radius: 99px;
-  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+  box-shadow: 0 4px 15px rgb(244 63 94 / 30%);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -439,11 +495,11 @@ body.dark-mode .badge-count {
 
 .badge-trophy:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(244, 63, 94, 0.4);
+  box-shadow: 0 8px 25px rgb(244 63 94 / 40%);
 }
 
 /* -----------------------------------------
-   11. Holographic Liquid Glow Badge [NEW]
+   11. Holographic Liquid Glow Badge
    ----------------------------------------- */
 .badge-holographic {
   font-family: var(--badge-font);
@@ -454,8 +510,8 @@ body.dark-mode .badge-count {
   border-radius: 8px;
   background: linear-gradient(45deg, #ff007f, #7f00ff, #00f0ff, #ff007f);
   background-size: 300% 300%;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 20px rgba(127, 0, 255, 0.3);
+  border: 1px solid rgb(255 255 255 / 25%);
+  box-shadow: 0 4px 20px rgb(127 0 255 / 30%);
   letter-spacing: 1px;
   animation: liquid-flow 6s ease infinite;
   transition: all 0.3s ease;
@@ -469,12 +525,12 @@ body.dark-mode .badge-count {
 
 .badge-holographic:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgb(0 240 255 / 50%);
+  border-color: rgb(255 255 255 / 50%);
 }
 
 /* -----------------------------------------
-   12. Cosmic Shimmer Border Badge [NEW]
+   12. Cosmic Shimmer Border Badge
    ----------------------------------------- */
 .badge-cosmic {
   font-family: var(--badge-font);
@@ -489,7 +545,7 @@ body.dark-mode .badge-count {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(30, 27, 75, 0.5);
+  box-shadow: 0 4px 15px rgb(30 27 75 / 50%);
   letter-spacing: 1px;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -498,7 +554,7 @@ body.dark-mode .badge-count {
 .cosmic-glow {
   position: absolute;
   inset: -4px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgb(168 85 247 / 30%) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -506,7 +562,7 @@ body.dark-mode .badge-count {
 
 .badge-cosmic:hover {
   transform: translateY(-2px);
-  color: #ffffff;
+  color: #fff;
   border-style: solid;
   animation: border-sparkle 1s infinite alternate;
 }
@@ -516,30 +572,30 @@ body.dark-mode .badge-count {
 }
 
 @keyframes border-sparkle {
-  0% { border-color: #f59e0b; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4); }
-  100% { border-color: #a855f7; box-shadow: 0 0 20px rgba(168, 85, 247, 0.6); }
+  0% { border-color: #f59e0b; box-shadow: 0 0 10px rgb(245 158 11 / 40%); }
+  100% { border-color: #a855f7; box-shadow: 0 0 20px rgb(168 85 247 / 60%); }
 }
 
 /* ============================================================
-   DARK & LIGHT THEME SPECIFICITY OVERRIDES (RESOLVES VIOLET BG)
+   DARK & LIGHT THEME SPECIFICITY OVERRIDES
    ============================================================ */
 body .component-card {
-  background: #ffffff !important;
-  border: 1px solid rgba(229, 231, 235, 0.8) !important;
+  background: #fff !important;
+  border: 1px solid rgb(229 231 235 / 80%) !important;
   border-radius: 20px !important;
   padding: 24px !important;
   display: flex !important;
   flex-direction: column !important;
   gap: 18px !important;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02) !important;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 2%) !important;
   color: #0f172a !important;
 }
 
 body.dark-mode .component-card {
-  background: rgba(30, 41, 59, 0.45) !important;
-  border-color: rgba(255, 255, 255, 0.06) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+  background: rgb(30 41 59 / 45%) !important;
+  border-color: rgb(255 255 255 / 6%) !important;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 15%) !important;
   color: #f8fafc !important;
 }
 
@@ -547,19 +603,19 @@ body.dark-mode .card-desc {
   color: #94a3b8 !important;
 }
 
-body .card-preview {
-  background: #f8fafc !important;
-  border-radius: 12px !important;
-  min-height: 120px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border: 1px solid rgba(241, 245, 249, 0.8) !important;
+.card-preview {
+  background: #f8fafc;
+  border-radius: 12px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(241 245 249 / 80%);
 }
 
 body.dark-mode .card-preview {
-  background: #0f172a !important;
-  border-color: rgba(255, 255, 255, 0.04) !important;
+  background: #0f172a;
+  border-color: rgb(255 255 255 / 4%);
 }
 
 /* -----------------------------------------
@@ -578,15 +634,15 @@ body.dark-mode .card-preview {
 }
 
 body.dark-mode .badge-counter-wrap {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 5%);
+  border-color: rgb(255 255 255 / 10%);
 }
 
 .badge-count-btn {
   width: 28px;
   height: 28px;
   border: none;
-  background: #ffffff;
+  background: #fff;
   color: #0f172a;
   border-radius: 50%;
   cursor: pointer;
@@ -595,18 +651,18 @@ body.dark-mode .badge-counter-wrap {
   justify-content: center;
   font-size: 14px;
   font-weight: 800;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
   transition: all 0.2s ease;
 }
 
 body.dark-mode .badge-count-btn {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: rgb(255 255 255 / 10%);
+  color: #fff;
 }
 
 .badge-count-btn:hover {
   background: var(--accent-primary);
-  color: #ffffff;
+  color: #fff;
   transform: scale(1.08);
 }
 
@@ -620,7 +676,7 @@ body.dark-mode .badge-count-btn {
 }
 
 body.dark-mode .badge-count-value {
-  color: #ffffff;
+  color: #fff;
 }
 
 /* -----------------------------------------
@@ -632,14 +688,14 @@ body.dark-mode .badge-count-value {
   gap: 10px;
   padding: 8px 18px;
   background: #090d1a;
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  border: 1px solid rgb(0 240 255 / 20%);
   border-radius: 8px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 11px;
   font-weight: 700;
   color: #00f0ff;
   letter-spacing: 1px;
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
+  box-shadow: 0 0 15px rgb(0 240 255 / 5%);
   position: relative;
   overflow: hidden;
 }
@@ -647,7 +703,7 @@ body.dark-mode .badge-count-value {
 .spinner-ring {
   width: 14px;
   height: 14px;
-  border: 2px solid rgba(0, 240, 255, 0.2);
+  border: 2px solid rgb(0 240 255 / 20%);
   border-top-color: #00f0ff;
   border-radius: 50%;
   animation: cyber-spin 1s infinite linear;
@@ -660,6 +716,189 @@ body.dark-mode .badge-count-value {
 
 .badge-cyber-spinner:hover {
   border-color: #00f0ff;
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 20px rgb(0 240 255 / 30%);
   background: #0b1122;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: linear-gradient(180deg, transparent 0%, rgb(15 17 26) 100%);
+  border-top: 1px solid rgb(255 255 255 / 5%);
+  padding: 80px 40px 30px;
+  margin-top: 80px;
+  width: 100%;
+  color: #8a9bc0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr) 2fr;
+  gap: 40px;
+}
+
+.footer-col h3 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: #8a9bc0;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+  color: var(--accent-primary);
+}
+
+.footer-logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo i {
+  color: var(--accent-primary);
+}
+
+.footer-col.brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 4%);
+  border: 1px solid rgb(255 255 255 / 6%);
+  color: #8a9bc0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.socials a:hover {
+  background: var(--accent-primary);
+  color: #fff;
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgb(235 104 53 / 30%);
+}
+
+.footer-col.newsletter p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  background: rgb(255 255 255 / 4%);
+  border: 1px solid rgb(255 255 255 / 6%);
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.newsletter-form input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgb(235 104 53 / 15%);
+}
+
+.newsletter-form button {
+  background: var(--accent-primary);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.newsletter-form button:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgb(235 104 53 / 30%);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 60px auto 0;
+  padding-top: 30px;
+  border-top: 1px solid rgb(255 255 255 / 5%);
+  text-align: center;
+  font-size: 13px;
+  color: #5a6b8e;
+}
+
+@media (max-width: 1200px) {
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-col.brand,
+  .footer-col.newsletter {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer {
+    margin-left: 0;
+    padding: 60px 24px 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-col.brand,
+  .footer-col.newsletter {
+    grid-column: span 1;
+  }
 }
