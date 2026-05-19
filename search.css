@@ -1195,3 +1195,412 @@ body{
   font-size: 13px;
   color: #555;
 }
+
+/* =========================================================
+   16. LIQUID BORDER SEARCH
+========================================================= */
+.liquid-search-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.liquid-blob {
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(45deg, #00f2fe, #4facfe, #0000ff);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  filter: blur(8px);
+  z-index: 1;
+  animation: liquid-morph 8s ease-in-out infinite alternate;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.liquid-search-container:focus-within .liquid-blob {
+  opacity: 0.9;
+  filter: blur(12px);
+}
+
+.liquid-search-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px 0 20px;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.liquid-search-box i {
+  color: #00f2fe;
+  font-size: 16px;
+  margin-right: 12px;
+  animation: liquid-drip 2s ease-in-out infinite alternate;
+}
+
+.liquid-search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+}
+
+.liquid-search-box button {
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #0f172a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.liquid-search-box button:hover {
+  transform: scale(1.1);
+}
+
+@keyframes liquid-morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes liquid-drip {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(2px); }
+}
+
+/* =========================================================
+   17. LASER SCANNER SEARCH
+========================================================= */
+.laser-search-wrapper {
+  width: 100%;
+  max-width: 300px;
+}
+
+.laser-search-input-wrap {
+  position: relative;
+  width: 100%;
+  background: #0b0f19;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.laser-search-input-wrap input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.laser-icon {
+  color: #00f3ff;
+  font-size: 16px;
+  z-index: 2;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.laser-search-input-wrap input:focus ~ .laser-icon {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px #00f3ff);
+}
+
+/* Border laser line */
+.laser-scanner-line {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  pointer-events: none;
+  border: 1px solid transparent;
+  z-index: 1;
+}
+
+.laser-search-input-wrap input:focus ~ .laser-scanner-line {
+  background: linear-gradient(90deg, transparent, #00f3ff, transparent) no-repeat;
+  background-size: 100px 100%;
+  animation: laser-scan-border 2s linear infinite;
+  border-color: rgba(0, 243, 255, 0.15);
+}
+
+@keyframes laser-scan-border {
+  0% { background-position: -150px 0; }
+  100% { background-position: 350px 0; }
+}
+
+/* =========================================================
+   18. RADIAL REVEAL SEARCH
+========================================================= */
+.radial-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50px;
+  height: 50px;
+  transition: width 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Checkbox toggle trick */
+.radial-toggle {
+  display: none;
+}
+
+.radial-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff007f, #7b2cbf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.radial-btn:hover {
+  transform: scale(1.05);
+}
+
+.radial-btn i {
+  color: white;
+  font-size: 18px;
+  position: absolute;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.radial-btn .close-icon {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.radial-input-box {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  background: #15102a;
+  border: 1px solid rgba(255, 0, 127, 0.3);
+  padding: 0 60px 0 20px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 4;
+}
+
+.radial-input-box input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+}
+
+/* Checked States */
+.radial-toggle:checked ~ .radial-search-wrapper {
+  width: 280px;
+}
+
+.radial-toggle:checked ~ .radial-search-wrapper .radial-input-box {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.radial-toggle:checked ~ .radial-search-wrapper .radial-btn {
+  background: #15102a;
+  box-shadow: none;
+  border: 1px solid rgba(255, 0, 127, 0.3);
+}
+
+.radial-toggle:checked ~ .radial-search-wrapper .radial-btn .search-icon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.radial-toggle:checked ~ .radial-search-wrapper .radial-btn .close-icon {
+  opacity: 1;
+  transform: rotate(0);
+  color: #ff007f;
+}
+
+/* =========================================================
+   19. INTERACTIVE TAG PILL SEARCH
+========================================================= */
+.tag-search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #111424;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 10px 16px;
+  width: 100%;
+  max-width: 320px;
+  transition: all 0.3s ease;
+}
+
+.tag-search-container:focus-within {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.2);
+}
+
+.tag-pills {
+  display: flex;
+  gap: 6px;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.tag-pill i {
+  cursor: pointer;
+  font-size: 10px;
+  transition: color 0.2s;
+}
+
+.tag-pill i:hover {
+  color: #ef4444;
+}
+
+.tag-search-container input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 13px;
+  min-width: 60px;
+}
+
+.tag-search-container i.fa-filter {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.tag-search-container:focus-within i.fa-filter {
+  color: #8b5cf6;
+}
+
+/* =========================================================
+   20. RETRO ARCADE CONSOLE SEARCH
+========================================================= */
+.arcade-search-box {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  background: #020712;
+  border: 2px solid #00ff66;
+  border-radius: 4px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.2), inset 0 0 10px rgba(0, 255, 102, 0.1);
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.arcade-scanlines {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.arcade-prefix {
+  color: #00ff66;
+  font-weight: 800;
+  font-size: 14px;
+  margin-right: 8px;
+  text-shadow: 0 0 4px #00ff66;
+}
+
+.arcade-search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff66;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 2;
+  text-shadow: 0 0 4px #00ff66;
+}
+
+.arcade-search-box input::placeholder {
+  color: rgba(0, 255, 102, 0.4);
+  text-shadow: none;
+}
+
+.arcade-cursor {
+  width: 8px;
+  height: 14px;
+  background: #00ff66;
+  animation: arcade-blink 0.8s steps(2, start) infinite;
+  margin-left: 2px;
+  box-shadow: 0 0 4px #00ff66;
+}
+
+.arcade-icon {
+  color: #00ff66;
+  font-size: 16px;
+  margin-left: auto;
+  z-index: 2;
+  text-shadow: 0 0 4px #00ff66;
+  animation: arcade-bounce 1s infinite alternate;
+}
+
+@keyframes arcade-blink {
+  to { visibility: hidden; }
+}
+
+@keyframes arcade-bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2px); }
+}
