@@ -967,7 +967,12 @@ MAIN
 
     <!-- ANALYTICS -->
 
-    <div class="dashboard-card large-card">
+    <div class="dashboard-card large-card" id="card-traffic">
+
+      <div class="nc-copy-btn" onclick="copyCode('card-traffic')" title="Copy Code">
+        <i class="fa-regular fa-copy"></i>
+        <span class="copy-label">Copy</span>
+      </div>
 
       <div class="card-header">
 
@@ -1019,11 +1024,43 @@ MAIN
 
       </div>
 
+      <textarea class="nc-code-storage" id="code-card-traffic" readonly><!-- Traffic Analytics Card -->
+<div class="dashboard-card large-card">
+  <div class="card-header">
+    <div>
+      <h2>Traffic Analytics</h2>
+      <p>Website traffic for last 6 months</p>
+    </div>
+    <button class="filter-btn">Monthly <i class="fa-solid fa-angle-down"></i></button>
+  </div>
+  <div class="line-chart">
+    <span style="height:40%"></span>
+    <span style="height:65%"></span>
+    <span style="height:55%"></span>
+    <span style="height:85%"></span>
+    <span style="height:75%"></span>
+    <span style="height:95%"></span>
+  </div>
+  <div class="chart-labels">
+    <span>Jan</span>
+    <span>Feb</span>
+    <span>Mar</span>
+    <span>Apr</span>
+    <span>May</span>
+    <span>Jun</span>
+  </div>
+</div></textarea>
+
     </div>
 
     <!-- RECENT ACTIVITY -->
 
-    <div class="dashboard-card">
+    <div class="dashboard-card" id="card-activity">
+
+      <div class="nc-copy-btn" onclick="copyCode('card-activity')" title="Copy Code">
+        <i class="fa-regular fa-copy"></i>
+        <span class="copy-label">Copy</span>
+      </div>
 
       <div class="card-header">
 
@@ -1091,11 +1128,46 @@ MAIN
 
       </div>
 
+      <textarea class="nc-code-storage" id="code-card-activity" readonly><!-- Recent Activity Card -->
+<div class="dashboard-card">
+  <div class="card-header">
+    <h2>Recent Activity</h2>
+  </div>
+  <div class="activity-list">
+    <div class="activity-item">
+      <div class="activity-dot green"></div>
+      <div>
+        <strong>New component uploaded</strong>
+        <span>2 minutes ago</span>
+      </div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-dot purple"></div>
+      <div>
+        <strong>UI template updated</strong>
+        <span>15 minutes ago</span>
+      </div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-dot orange"></div>
+      <div>
+        <strong>New contributor joined</strong>
+        <span>1 hour ago</span>
+      </div>
+    </div>
+  </div>
+</div></textarea>
+
     </div>
 
     <!-- PROGRESS -->
 
-    <div class="dashboard-card">
+    <div class="dashboard-card" id="card-progress">
+
+      <div class="nc-copy-btn" onclick="copyCode('card-progress')" title="Copy Code">
+        <i class="fa-regular fa-copy"></i>
+        <span class="copy-label">Copy</span>
+      </div>
 
       <div class="card-header">
 
@@ -1184,11 +1256,43 @@ MAIN
 
       </div>
 
+      <textarea class="nc-code-storage" id="code-card-progress" readonly><!-- Project Progress Card -->
+<div class="dashboard-card">
+  <div class="card-header">
+    <h2>Project Progress</h2>
+  </div>
+  <div class="progress-group">
+    <div class="progress-item">
+      <div class="progress-top">
+        <span>Dashboard UI</span>
+        <strong>90%</strong>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill orange-fill" style="width:90%"></div>
+      </div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-top">
+        <span>Components</span>
+        <strong>75%</strong>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill purple-fill" style="width:75%"></div>
+      </div>
+    </div>
+  </div>
+</div></textarea>
+
     </div>
 
     <!-- TEAM -->
 
-    <div class="dashboard-card">
+    <div class="dashboard-card" id="card-team">
+
+      <div class="nc-copy-btn" onclick="copyCode('card-team')" title="Copy Code">
+        <i class="fa-regular fa-copy"></i>
+        <span class="copy-label">Copy</span>
+      </div>
 
       <div class="card-header">
 
@@ -1207,10 +1311,27 @@ MAIN
 
       </div>
 
+      <textarea class="nc-code-storage" id="code-card-team" readonly><!-- Team Members Card -->
+<div class="dashboard-card">
+  <div class="card-header">
+    <h2>Team Members</h2>
+  </div>
+  <div class="team-members">
+    <img src="https://i.pravatar.cc/100?img=12" alt="">
+    <img src="https://i.pravatar.cc/100?img=22" alt="">
+    <img src="https://i.pravatar.cc/100?img=32" alt="">
+    <img src="https://i.pravatar.cc/100?img=42" alt="">
+  </div>
+</div></textarea>
+
     </div>
 
     <!-- REVENUE OVERVIEW -->
-    <div class="dashboard-card">
+    <div class="dashboard-card" id="card-revenue">
+      <div class="nc-copy-btn" onclick="copyCode('card-revenue')" title="Copy Code">
+        <i class="fa-regular fa-copy"></i>
+        <span class="copy-label">Copy</span>
+      </div>
       <div class="card-header">
         <h2>Revenue</h2>
         <button class="filter-btn">This Week <i class="fa-solid fa-angle-down"></i></button>
@@ -1228,10 +1349,34 @@ MAIN
         <div class="bar" style="height: 90%;"></div>
         <div class="bar" style="height: 100%;"></div>
       </div>
+      <textarea class="nc-code-storage" id="code-card-revenue" readonly><!-- Revenue Card -->
+<div class="dashboard-card">
+  <div class="card-header">
+    <h2>Revenue</h2>
+    <button class="filter-btn">This Week <i class="fa-solid fa-angle-down"></i></button>
+  </div>
+  <div class="revenue-stats">
+    <h3>$45,231</h3>
+    <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 14.5%</span>
+  </div>
+  <div class="revenue-chart">
+    <div class="bar" style="height: 40%;"></div>
+    <div class="bar" style="height: 60%;"></div>
+    <div class="bar" style="height: 30%;"></div>
+    <div class="bar" style="height: 80%;"></div>
+    <div class="bar" style="height: 50%;"></div>
+    <div class="bar" style="height: 90%;"></div>
+    <div class="bar" style="height: 100%;"></div>
+  </div>
+</div></textarea>
     </div>
 
     <!-- SERVER STATUS -->
-    <div class="dashboard-card">
+    <div class="dashboard-card" id="card-server">
+      <div class="nc-copy-btn" onclick="copyCode('card-server')" title="Copy Code">
+        <i class="fa-regular fa-copy"></i>
+        <span class="copy-label">Copy</span>
+      </div>
       <div class="card-header">
         <h2>Server Status</h2>
       </div>
@@ -1258,10 +1403,36 @@ MAIN
           <div class="status-badge offline">Offline</div>
         </div>
       </div>
+      <textarea class="nc-code-storage" id="code-card-server" readonly><!-- Server Status Card -->
+<div class="dashboard-card">
+  <div class="card-header">
+    <h2>Server Status</h2>
+  </div>
+  <div class="server-status-list">
+    <div class="server-item">
+      <div class="server-info">
+        <i class="fa-solid fa-server"></i>
+        <span>Main DB</span>
+      </div>
+      <div class="status-badge online">Online</div>
+    </div>
+    <div class="server-item">
+      <div class="server-info">
+        <i class="fa-solid fa-cloud"></i>
+        <span>CDN</span>
+      </div>
+      <div class="status-badge online">Online</div>
+    </div>
+  </div>
+</div></textarea>
     </div>
 
     <!-- TOP PERFORMERS -->
-    <div class="dashboard-card">
+    <div class="dashboard-card" id="card-performers">
+      <div class="nc-copy-btn" onclick="copyCode('card-performers')" title="Copy Code">
+        <i class="fa-regular fa-copy"></i>
+        <span class="copy-label">Copy</span>
+      </div>
       <div class="card-header">
         <h2>Top Performers</h2>
       </div>
@@ -1291,10 +1462,38 @@ MAIN
           <div class="rank bronze">#3</div>
         </div>
       </div>
+      <textarea class="nc-code-storage" id="code-card-performers" readonly><!-- Top Performers Card -->
+<div class="dashboard-card">
+  <div class="card-header">
+    <h2>Top Performers</h2>
+  </div>
+  <div class="performers-list">
+    <div class="performer-item">
+      <img src="https://i.pravatar.cc/100?img=1" alt="Avatar">
+      <div class="performer-details">
+        <strong>John Doe</strong>
+        <span>1,430 Sales</span>
+      </div>
+      <div class="rank gold">#1</div>
+    </div>
+    <div class="performer-item">
+      <img src="https://i.pravatar.cc/100?img=5" alt="Avatar">
+      <div class="performer-details">
+        <strong>Jane Smith</strong>
+        <span>1,200 Sales</span>
+      </div>
+      <div class="rank silver">#2</div>
+    </div>
+  </div>
+</div></textarea>
     </div>
 
     <!-- SYSTEM LOAD -->
-    <div class="dashboard-card">
+    <div class="dashboard-card" id="card-system">
+      <div class="nc-copy-btn" onclick="copyCode('card-system')" title="Copy Code">
+        <i class="fa-regular fa-copy"></i>
+        <span class="copy-label">Copy</span>
+      </div>
       <div class="card-header">
         <h2>System Load</h2>
       </div>
@@ -1316,10 +1515,38 @@ MAIN
           <strong>65°C</strong>
         </div>
       </div>
+      <textarea class="nc-code-storage" id="code-card-system" readonly><!-- System Load Card -->
+<div class="dashboard-card">
+  <div class="card-header">
+    <h2>System Load</h2>
+  </div>
+  <div class="system-load-circle">
+    <div class="circle-outer">
+      <div class="circle-inner">
+        <span class="load-value">78%</span>
+        <span class="load-label">CPU</span>
+      </div>
+    </div>
+  </div>
+  <div class="load-stats">
+    <div class="load-stat-item">
+      <span>RAM</span>
+      <strong>12GB/16GB</strong>
+    </div>
+    <div class="load-stat-item">
+      <span>Temp</span>
+      <strong>65°C</strong>
+    </div>
+  </div>
+</div></textarea>
     </div>
 
     <!-- UPCOMING TASKS -->
-    <div class="dashboard-card">
+    <div class="dashboard-card" id="card-tasks">
+      <div class="nc-copy-btn" onclick="copyCode('card-tasks')" title="Copy Code">
+        <i class="fa-regular fa-copy"></i>
+        <span class="copy-label">Copy</span>
+      </div>
       <div class="card-header">
         <h2>Upcoming Tasks</h2>
       </div>
@@ -1340,6 +1567,29 @@ MAIN
           <span class="task-tag low">Low</span>
         </label>
       </div>
+      <textarea class="nc-code-storage" id="code-card-tasks" readonly><!-- Upcoming Tasks Card -->
+<div class="dashboard-card">
+  <div class="card-header">
+    <h2>Upcoming Tasks</h2>
+  </div>
+  <div class="task-list">
+    <label class="task-item">
+      <input type="checkbox" checked>
+      <span class="task-text">Review Q3 Financials</span>
+      <span class="task-tag urgent">Urgent</span>
+    </label>
+    <label class="task-item">
+      <input type="checkbox">
+      <span class="task-text">Update Marketing Assets</span>
+      <span class="task-tag medium">Medium</span>
+    </label>
+    <label class="task-item">
+      <input type="checkbox">
+      <span class="task-text">Team Sync Meeting</span>
+      <span class="task-tag low">Low</span>
+    </label>
+  </div>
+</div></textarea>
     </div>
 
   </section>
@@ -1786,6 +2036,9 @@ function deleteNote(btn) { btn.closest('.sticky-note').remove(); }
   </div>
 
 </main>
+<!-- ================= TOAST NOTIFICATION ================= -->
+<div id="ncToast">✓ Code copied to clipboard!</div>
+
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">

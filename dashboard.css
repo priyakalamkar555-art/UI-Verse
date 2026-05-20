@@ -2949,4 +2949,77 @@ HERO
 
 @keyframes noteOut {
   to { opacity: 0; transform: scale(0.7) rotate(4deg); }
-}
+}
+
+/* =========================================================
+   COPY CODE FUNCTIONALITY
+========================================================= */
+
+.nc-code-storage {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.nc-copy-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(123, 92, 255, 0.15);
+  border: 1px solid rgba(123, 92, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #7b5cff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.nc-copy-btn:hover {
+  background: rgba(123, 92, 255, 0.25);
+  border-color: rgba(123, 92, 255, 0.5);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(123, 92, 255, 0.3);
+}
+
+.nc-copy-btn i {
+  font-size: 1rem;
+}
+
+.copy-label {
+  display: none;
+}
+
+/* Toast Notification */
+#ncToast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #7b5cff, #00d4ff);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(123, 92, 255, 0.4);
+  font-size: 0.95rem;
+  font-weight: 600;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+#ncToast.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
