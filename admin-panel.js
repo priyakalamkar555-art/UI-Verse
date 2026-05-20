@@ -31,7 +31,7 @@ function initThemeSystem() {
     const isLight = document.body.classList.toggle('light-mode');
     icon.className = isLight ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    showLiveToast(isLight ? 'Switched to Light Theme' : 'Switched to Premium Dark Theme', 'success');
+    if (typeof showLiveToast === 'function') showLiveToast(isLight ? 'Switched to Light Theme' : 'Switched to Premium Dark Theme', 'success');
   });
 }
 
@@ -92,7 +92,7 @@ function switchMockLayout(layout) {
     btn.classList.toggle('active', isTarget);
   });
 
-  showLiveToast(`Switched framework layout to: ${layout.toUpperCase()}`, 'success');
+  if (typeof showLiveToast === 'function') showLiveToast(`Switched framework layout to: ${layout.toUpperCase()}`, 'success');
 }
 
 function triggerLayoutGlow() {
@@ -166,7 +166,7 @@ function updateAnalyticsPeriod(period) {
     doughnutValue.textContent = `${dataset.doughnutVal}%`;
   }
 
-  showLiveToast(`Updated metrics data for period: ${period.toUpperCase()}`, 'success');
+  if (typeof showLiveToast === 'function') showLiveToast(`Updated metrics data for period: ${period.toUpperCase()}`, 'success');
 }
 
 function triggerMetricPulse() {
@@ -194,7 +194,7 @@ function toggleMiniSidebarCollapse() {
     chevron.className = isCollapsed ? 'fa-solid fa-chevron-right' : 'fa-solid fa-chevron-left';
   }
 
-  showLiveToast(isCollapsed ? 'Sidebar Collapsed (Space-Saver)' : 'Sidebar Expanded', 'success');
+  if (typeof showLiveToast === 'function') showLiveToast(isCollapsed ? 'Sidebar Collapsed (Space-Saver)' : 'Sidebar Expanded', 'success');
 }
 
 function switchMiniSidebarLink(elem) {
@@ -202,7 +202,7 @@ function switchMiniSidebarLink(elem) {
   links.forEach(l => l.classList.remove('active'));
   elem.parentNode.classList.add('active');
   const txt = elem.querySelector('span').textContent;
-  showLiveToast(`Opened section: ${txt}`, 'success');
+  if (typeof showLiveToast === 'function') showLiveToast(`Opened section: ${txt}`, 'success');
 }
 
 // ==========================================
@@ -227,7 +227,7 @@ function simulateKpiBounce() {
       c.style.transform = '';
     }, 300);
   });
-  showLiveToast('KPI Telemetry Counters Refreshed', 'success');
+  if (typeof showLiveToast === 'function') showLiveToast('KPI Telemetry Counters Refreshed', 'success');
 }
 
 // ==========================================
@@ -270,11 +270,11 @@ function toggleUserRowStatus(btn) {
   if (isActive) {
     statusSpan.className = 'td-status paused';
     statusSpan.textContent = 'Paused';
-    showLiveToast('User Account Suspended', 'warning');
+    if (typeof showLiveToast === 'function') showLiveToast('User Account Suspended', 'warning');
   } else {
     statusSpan.className = 'td-status active';
     statusSpan.textContent = 'Active';
-    showLiveToast('User Account Restored', 'success');
+    if (typeof showLiveToast === 'function') showLiveToast('User Account Restored', 'success');
   }
 }
 
@@ -316,7 +316,7 @@ function simulateUserAddition() {
 
   tableBody.appendChild(tr);
   filterUserDirectoryTable();
-  showLiveToast(`Added operator row: ${names[randomIdx]}`, 'success');
+  if (typeof showLiveToast === 'function') showLiveToast(`Added operator row: ${names[randomIdx]}`, 'success');
 }
 
 // ==========================================
@@ -340,9 +340,9 @@ function copyCode(id) {
 
   const rawCode = pre.querySelector('code').textContent;
   navigator.clipboard.writeText(rawCode).then(() => {
-    showLiveToast('Source code copied to clipboard!', 'success');
+    if (typeof showLiveToast === 'function') showLiveToast('Source code copied to clipboard!', 'success');
   }).catch(() => {
-    showLiveToast('Copy failed, please retry.', 'error');
+    if (typeof showLiveToast === 'function') showLiveToast('Copy failed, please retry.', 'error');
   });
 }
 
@@ -389,7 +389,7 @@ function showLiveToast(message, type = 'success') {
 // 10. COMPREHENSIVE SEQUENCED TEST
 // ==========================================
 function triggerAllShowcase() {
-  showLiveToast('Commencing Sequenced Showcase Diagnostics...', 'success');
+  if (typeof showLiveToast === 'function') showLiveToast('Commencing Sequenced Showcase Diagnostics...', 'success');
   
   // Step 1: Layout toggle
   setTimeout(() => {
@@ -426,5 +426,5 @@ function resetAllPanels() {
     toggleMiniSidebarCollapse();
   }
   
-  showLiveToast('All premium dashboards reset to baseline.', 'success');
+  if (typeof showLiveToast === 'function') showLiveToast('All premium dashboards reset to baseline.', 'success');
 }
