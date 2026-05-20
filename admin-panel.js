@@ -721,4 +721,4 @@ function resetAllPanels() {
     'success'
   );
 
-}
+}       
