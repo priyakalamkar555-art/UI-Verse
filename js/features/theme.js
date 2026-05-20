@@ -1,144 +1,130 @@
 /**
- * Theme Feature
- * Manages dark mode toggling and persistence
+ * Theme Feature Bridge
+ * Keeps backward compatibility while delegating to the centralized design token manager.
  */
 
-const Theme = {
-  _state: {
-    initialized: false,
-    listeners: new WeakMap()
-  },
-
-  _getToggleButtons() {
-    const buttons = Array.from(document.querySelectorAll('.theme-toggle, #darkModeToggle, #themeToggle'));
-    return Array.from(new Set(buttons));
-  },
-
-  _createToggleButton() {
-    const navRight = document.querySelector('.nav-right');
-    if (!navRight) return null;
-
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'theme-toggle';
-    button.id = 'themeToggle';
-    button.setAttribute('aria-label', 'Switch to dark mode');
-    button.setAttribute('aria-pressed', 'false');
-    button.innerHTML = '<i class="fa-solid fa-moon"></i>';
-
-    const anchorButton = navRight.querySelector('.primary-nav-btn');
-    if (anchorButton && anchorButton.nextSibling) {
-      navRight.insertBefore(button, anchorButton.nextSibling);
-    } else {
-      navRight.appendChild(button);
-    }
-
-    return button;
-  },
-
-  _ensureToggleButtons() {
-    const toggles = this._getToggleButtons();
-    if (toggles.length > 0) return toggles;
-
-    const injected = this._createToggleButton();
-    return injected ? [injected] : [];
-  },
-
-  updateToggleState(themeToggles, isDark) {
-    const buttons = Array.isArray(themeToggles) ? themeToggles : [themeToggles].filter(Boolean);
-
-    buttons.forEach((themeToggle) => {
-      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-      themeToggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-      themeToggle.setAttribute('aria-pressed', String(isDark));
-
-      const icon = themeToggle.querySelector('i');
-      if (icon) {
-        icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+(function (global) {
+  function getManager() {
+    if (global.DesignTokens) return global.DesignTokens;
+    if (typeof module !== 'undefined' && module.exports) {
+      try {
+        return require('./design-tokens.js');
+      } catch (_) {
+        return null;
       }
-    });
-  },
+    }
+    return null;
+  }
 
-  _applyTheme(isDark) {
-    document.body.classList.toggle('dark-mode', isDark);
-    document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
-    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+  function getToggle() {
+    return document.getElementById('theme-toggle') || document.getElementById('darkModeToggle');
+  }
 
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    this.updateToggleState(this._getToggleButtons(), isDark);
+  function updateToggleLabel(themeName) {
+    const toggle = getToggle();
+    if (!toggle) return;
 
-    document.dispatchEvent(new CustomEvent('uiverse:theme-change', {
-      detail: {
-        theme: isDark ? 'dark' : 'light',
-        isDark
+    const isDark = themeName !== 'light';
+    const icon = toggle.querySelector('i');
+
+    if (icon) {
+      icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    }
+
+    if (toggle.tagName !== 'BUTTON') return;
+    toggle.innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+  }
+
+  const Theme = {
+    _state: {
+      initialized: false,
+      listener: null,
+      managerListener: null,
+      managerLoader: null
+    },
+
+    load() {
+      const manager = getManager();
+      if (!manager) return null;
+      const applied = manager.init();
+      updateToggleLabel(applied?.resolvedTheme || applied?.theme || manager.getSystemTheme());
+      return applied;
+    },
+
+    init() {
+      if (this._state.initialized) return;
+
+      const manager = getManager();
+      if (!manager) {
+        if (typeof document === 'undefined') return;
+
+        if (!this._state.managerLoader) {
+          const script = document.createElement('script');
+          script.src = '/js/features/design-tokens.js';
+          script.defer = true;
+          script.onload = () => {
+            this._state.managerLoader = null;
+            this.init();
+          };
+          script.onerror = () => {
+            this._state.managerLoader = null;
+          };
+          this._state.managerLoader = script;
+          document.head.appendChild(script);
+        }
+        return;
       }
-    }));
-  },
 
-  _syncThemeFromStorage() {
-    const saved = localStorage.getItem('theme');
+      this.load();
 
-    if (saved === 'dark') {
-      this._applyTheme(true);
-      return;
-    }
+      const themeToggle = getToggle();
+      if (themeToggle) {
+        if (this._state.listener) {
+          themeToggle.removeEventListener('click', this._state.listener);
+        }
 
-    if (saved === 'light') {
-      this._applyTheme(false);
-      return;
-    }
+        const onClick = () => {
+          const currentTheme = document.documentElement.dataset.theme || 'light';
+          const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          manager.applyTheme(nextTheme);
+          updateToggleLabel(nextTheme);
+        };
 
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    this._applyTheme(prefersDark);
-  },
+        themeToggle.addEventListener('click', onClick);
+        this._state.listener = onClick;
+      }
 
-  /**
-   * Load and apply saved theme
-   */
-  load() {
-    this._syncThemeFromStorage();
-  },
+      if (this._state.managerListener) {
+        window.removeEventListener('design-tokens:themechange', this._state.managerListener);
+      }
 
-  /**
-   * Initialize theme feature
-   */
-  init() {
-    if (this._state.initialized) return;
-
-    const themeToggles = this._ensureToggleButtons();
-    this.load();
-
-    themeToggles.forEach((themeToggle) => {
-      if (this._state.listeners.has(themeToggle)) return;
-
-      const onClick = (event) => {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        const isDark = !document.body.classList.contains('dark-mode');
-        this._applyTheme(isDark);
+      const onThemeChange = (event) => {
+        updateToggleLabel(event.detail?.resolvedTheme || event.detail?.theme || 'light');
       };
 
-      themeToggle.addEventListener('click', onClick, true);
-      this._state.listeners.set(themeToggle, onClick);
-    });
+      window.addEventListener('design-tokens:themechange', onThemeChange);
+      this._state.managerListener = onThemeChange;
+      this._state.initialized = true;
+    },
 
-    this._state.initialized = true;
-  },
-
-  destroy() {
-    this._getToggleButtons().forEach((themeToggle) => {
-      const listener = this._state.listeners.get(themeToggle);
-      if (listener) {
-        themeToggle.removeEventListener('click', listener, true);
+    destroy() {
+      const themeToggle = getToggle();
+      if (themeToggle && this._state.listener) {
+        themeToggle.removeEventListener('click', this._state.listener);
       }
-    });
+      if (this._state.managerListener) {
+        window.removeEventListener('design-tokens:themechange', this._state.managerListener);
+      }
+      this._state.listener = null;
+      this._state.managerListener = null;
+      this._state.managerLoader = null;
+      this._state.initialized = false;
+    }
+  };
 
-    this._state.listeners = new WeakMap();
-    this._state.initialized = false;
+  global.Theme = Theme;
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Theme;
   }
-};
-
-// Export for use in bootstrap
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = Theme;
-}
+})(typeof window !== 'undefined' ? window : globalThis);

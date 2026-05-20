@@ -388,7 +388,7 @@
       <h1 class="page-title">Developer Widgets</h1>
       <p class="page-desc">Modern reusable developer-focused UI widgets with interactive styling and clean structures.</p>
       <div class="page-meta">
-        <span class="meta-badge"><i class="fa-solid fa-tags"></i> 10 Components</span>
+        <span class="meta-badge"><i class="fa-solid fa-tags"></i> 15 Components</span>
         <span class="meta-badge"><i class="fa-solid fa-bolt"></i> Pure HTML/CSS/JS</span>
         <span class="meta-badge"><i class="fa-solid fa-mobile-screen-button"></i> Responsive</span>
       </div>
@@ -733,6 +733,141 @@
       </div>
     </div>
 
+    <!-- 11. WEATHER WIDGET -->
+    <div class="widget-wrapper">
+      <div class="widget-info">
+        <div class="widget-info-text">
+          <h2>Weather Widget</h2>
+          <p>Compact weather forecast for dashboard integration.</p>
+        </div>
+        <button class="widget-copy-btn" onclick="copyWidgetHTML(this)"><i class="fa-solid fa-copy"></i> Copy Code</button>
+      </div>
+      <div class="weather-widget">
+        <div class="weather-current">
+          <i class="fa-solid fa-cloud-sun weather-icon"></i>
+          <div class="weather-temp">72°<span>F</span></div>
+          <div class="weather-desc">Partly Cloudy<br>San Francisco, CA</div>
+        </div>
+        <div class="weather-forecast">
+          <div class="forecast-day"><span>Tue</span><i class="fa-solid fa-sun"></i><span>75°</span></div>
+          <div class="forecast-day"><span>Wed</span><i class="fa-solid fa-cloud"></i><span>68°</span></div>
+          <div class="forecast-day"><span>Thu</span><i class="fa-solid fa-cloud-rain"></i><span>62°</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. MUSIC PLAYER WIDGET -->
+    <div class="widget-wrapper">
+      <div class="widget-info">
+        <div class="widget-info-text">
+          <h2>Music Player</h2>
+          <p>Miniature media player with glassmorphism controls.</p>
+        </div>
+        <button class="widget-copy-btn" onclick="copyWidgetHTML(this)"><i class="fa-solid fa-copy"></i> Copy Code</button>
+      </div>
+      <div class="music-player-widget">
+        <div class="music-cover">
+          <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Album Art">
+        </div>
+        <div class="music-info">
+          <h4>Neon Nights</h4>
+          <p>Synthwave Sessions</p>
+        </div>
+        <div class="music-controls">
+          <button><i class="fa-solid fa-backward-step"></i></button>
+          <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+          <button><i class="fa-solid fa-forward-step"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. CRYPTO TICKER WIDGET -->
+    <div class="widget-wrapper">
+      <div class="widget-info">
+        <div class="widget-info-text">
+          <h2>Crypto Ticker</h2>
+          <p>Real-time cryptocurrency price tracker.</p>
+        </div>
+        <button class="widget-copy-btn" onclick="copyWidgetHTML(this)"><i class="fa-solid fa-copy"></i> Copy Code</button>
+      </div>
+      <div class="crypto-widget">
+        <div class="crypto-header">
+          <div class="crypto-coin">
+            <i class="fa-brands fa-bitcoin crypto-icon btc"></i>
+            <div>
+              <span class="coin-name">Bitcoin</span>
+              <span class="coin-sym">BTC</span>
+            </div>
+          </div>
+          <div class="crypto-price">
+            <span class="price-val">$42,850.20</span>
+            <span class="price-change positive">+2.45%</span>
+          </div>
+        </div>
+        <div class="crypto-chart">
+          <!-- Mock sparkline using CSS -->
+          <svg viewBox="0 0 100 20" preserveAspectRatio="none" style="width:100%; height:30px; margin-top:10px;">
+            <polyline points="0,15 20,10 40,18 60,5 80,12 100,2" fill="none" stroke="#10b981" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. SMART HOME WIDGET -->
+    <div class="widget-wrapper">
+      <div class="widget-info">
+        <div class="widget-info-text">
+          <h2>Smart Home</h2>
+          <p>IoT device control toggle grid.</p>
+        </div>
+        <button class="widget-copy-btn" onclick="copyWidgetHTML(this)"><i class="fa-solid fa-copy"></i> Copy Code</button>
+      </div>
+      <div class="smart-home-widget">
+        <div class="sh-grid">
+          <div class="sh-item active">
+            <i class="fa-solid fa-lightbulb"></i>
+            <span>Living Room</span>
+          </div>
+          <div class="sh-item">
+            <i class="fa-solid fa-snowflake"></i>
+            <span>AC Unit</span>
+          </div>
+          <div class="sh-item active">
+            <i class="fa-solid fa-tv"></i>
+            <span>Smart TV</span>
+          </div>
+          <div class="sh-item">
+            <i class="fa-solid fa-lock"></i>
+            <span>Front Door</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. CALENDAR WIDGET -->
+    <div class="widget-wrapper">
+      <div class="widget-info">
+        <div class="widget-info-text">
+          <h2>Mini Calendar</h2>
+          <p>Compact date picker and event indicator.</p>
+        </div>
+        <button class="widget-copy-btn" onclick="copyWidgetHTML(this)"><i class="fa-solid fa-copy"></i> Copy Code</button>
+      </div>
+      <div class="calendar-widget">
+        <div class="cal-header">
+          <i class="fa-solid fa-chevron-left"></i>
+          <span>October 2026</span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+        <div class="cal-grid">
+          <span class="day-name">Su</span><span class="day-name">Mo</span><span class="day-name">Tu</span><span class="day-name">We</span><span class="day-name">Th</span><span class="day-name">Fr</span><span class="day-name">Sa</span>
+          <span class="day muted">27</span><span class="day muted">28</span><span class="day muted">29</span><span class="day muted">30</span>
+          <span class="day">1</span><span class="day">2</span><span class="day has-event">3</span>
+          <span class="day">4</span><span class="day">5</span><span class="day active">6</span><span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span>
+        </div>
+      </div>
+    </div>
+
   </section>
 </div>
 
@@ -871,6 +1006,33 @@ initWidget();`;
       btn.disabled = false;
       tableBody.style.opacity = '1';
     }, 850);
+  }
+
+  // Generic Copy Widget HTML functionality
+  function copyWidgetHTML(btn) {
+    const widgetWrapper = btn.closest('.widget-wrapper');
+    if(!widgetWrapper) return;
+    
+    // The actual widget component is the second child inside the wrapper (after widget-info)
+    const widgetComponent = widgetWrapper.children[1];
+    if(!widgetComponent) return;
+
+    const htmlCode = widgetComponent.outerHTML;
+
+    navigator.clipboard.writeText(htmlCode).then(() => {
+      // Create and show toast
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = '<i class="fa-solid fa-circle-check"></i> Code copied successfully!';
+      document.body.appendChild(toast);
+      
+      // Remove toast after animation ends
+      setTimeout(() => {
+        if(toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 3000);
+    }).catch(err => {
+      console.error('Failed to copy widget HTML: ', err);
+    });
   }
 </script>
 

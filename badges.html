@@ -2,42 +2,19 @@
 <html lang="en">
 
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Badges UI — UIverse</title>
-
-  <!-- FONTS -->
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- ICONS -->
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  >
-
-  <!-- CSS -->
-
-  <link
-    rel="stylesheet"
-    href="badges.css"
-  >
-
+    <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; connect-src 'self' https:; img-src 'self' data: https:; font-src 'self' data: https:; script-src 'self' https: 'unsafe-hashes' sha256-4idOpfcVGcf1JIcDr6s5pmLauAMO9auB0wLw0b1hd9Y= sha256-EhZb9eCYZjdj8g1XUkWjS5kjAJ0k/lKMbMN+ZN6m09Q= sha256-XriXHWKMwk2T+JOvuAt7cij0Iacl5D/SqRKl7ZgDNZ4=; script-src-attr 'unsafe-hashes' sha256-4idOpfcVGcf1JIcDr6s5pmLauAMO9auB0wLw0b1hd9Y= sha256-EhZb9eCYZjdj8g1XUkWjS5kjAJ0k/lKMbMN+ZN6m09Q= sha256-XriXHWKMwk2T+JOvuAt7cij0Iacl5D/SqRKl7ZgDNZ4=; style-src 'self' https: 'unsafe-hashes'; style-src-attr 'unsafe-hashes'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badges — UIverse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="badges.css">
+  <link rel="stylesheet" href="command-palette.css">
+  <link rel="stylesheet" href="css/url-state.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- UIverse Modular CSS Architecture -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- UIverse Runtime Loader -->
+  <script src="js/loader.js" defer></script>
 </head>
 
 <body>
@@ -846,6 +823,91 @@ MAIN
 
       </div>
 
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="badge-card">
+      <div class="card-top">
+        <span class="card-tag">Gaming</span>
+        <button class="save-btn"><i class="fa-regular fa-bookmark"></i></button>
+      </div>
+      <div class="badge-preview">
+        <span class="rank-badge">
+          <i class="fa-solid fa-crown"></i> MVP
+        </span>
+      </div>
+      <h2>Rank Badge</h2>
+      <p>Gold themed prestige badge for leaderboards and gaming.</p>
+      <div class="card-actions">
+        <button>Preview</button><button>Copy</button>
+      </div>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="badge-card">
+      <div class="card-top">
+        <span class="card-tag">Animated</span>
+        <button class="save-btn"><i class="fa-regular fa-bookmark"></i></button>
+      </div>
+      <div class="badge-preview">
+        <span class="outline-pulse-badge">Recording</span>
+      </div>
+      <h2>Pulsing Outline Badge</h2>
+      <p>Minimalistic outline badge with a radiating animation effect.</p>
+      <div class="card-actions">
+        <button>Preview</button><button>Copy</button>
+      </div>
+    </div>
+
+    <!-- CARD 9 -->
+    <div class="badge-card">
+      <div class="card-top">
+        <span class="card-tag">Premium</span>
+        <button class="save-btn"><i class="fa-regular fa-bookmark"></i></button>
+      </div>
+      <div class="badge-preview">
+        <span class="gradient-border-badge">PRO PLAN</span>
+      </div>
+      <h2>Gradient Border Badge</h2>
+      <p>Sleek badge featuring a colorful gradient border and dark core.</p>
+      <div class="card-actions">
+        <button>Preview</button><button>Copy</button>
+      </div>
+    </div>
+
+    <!-- CARD 10 -->
+    <div class="badge-card">
+      <div class="card-top">
+        <span class="card-tag">UI</span>
+        <button class="save-btn"><i class="fa-regular fa-bookmark"></i></button>
+      </div>
+      <div class="badge-preview">
+        <span class="role-pill-badge moderator">
+          <span class="role-icon"><i class="fa-solid fa-shield-halved"></i></span>
+          <span class="role-text">Moderator</span>
+        </span>
+      </div>
+      <h2>Role Pill Badge</h2>
+      <p>Split pill design ideal for user roles and forum titles.</p>
+      <div class="card-actions">
+        <button>Preview</button><button>Copy</button>
+      </div>
+    </div>
+
+    <!-- CARD 11 -->
+    <div class="badge-card">
+      <div class="card-top">
+        <span class="card-tag">3D</span>
+        <button class="save-btn"><i class="fa-regular fa-bookmark"></i></button>
+      </div>
+      <div class="badge-preview">
+        <span class="chip-3d-badge">v2.0 Beta</span>
+      </div>
+      <h2>Floating 3D Badge</h2>
+      <p>Isometric 3D pill badge with soft floating shadow effects.</p>
+      <div class="card-actions">
+        <button>Preview</button><button>Copy</button>
+      </div>
     </div>
 
   </section>

@@ -25,8 +25,9 @@ The goal of UIverse is to help developers—especially beginners—make their fi
 ---
 
 ## 🖥️ Live Preview
+Live demo: https://tushar-sonawane06.github.io/UI-Verse/
 
-> (Add your deployed link here after hosting)
+> This repository is configured to auto-deploy to GitHub Pages via GitHub Actions. After pushing this change the Pages workflow will run — deployment may take a few minutes. If the site is not live yet, trigger the "Deploy to Pages" workflow from the Actions tab or check again in a few minutes.
 
 ---
 
@@ -112,6 +113,102 @@ python -m http.server 8000
 ### 4️⃣ Start Customizing
 
 Browse the component pages via the sidebar navigation. Each page contains reusable UI components with viewable and copyable code snippets.
+
+---
+
+## Component Usage Quick Examples
+
+Use this quick workflow when you add any UIverse component to a project:
+
+1. Add global base styles.
+2. Add the component stylesheet.
+3. Paste the component HTML.
+4. Add optional behavior with JavaScript (if needed).
+
+### 1) Buttons
+
+```html
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="button.css">
+
+<button class="primary-btn">Get Started</button>
+```
+
+### 2) Cards
+
+```html
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="cards.css">
+
+<article class="profile-card">
+	<div class="profile-avatar">UI</div>
+	<h3>UIverse Card</h3>
+	<p>Reusable card layout for content blocks.</p>
+</article>
+```
+
+### 3) Alerts
+
+```html
+<link rel="stylesheet" href="alerts.css">
+
+<div class="alert success">
+	<i class="fa-solid fa-circle-check"></i>
+	Profile updated successfully.
+</div>
+```
+
+### 4) Forms
+
+```html
+<link rel="stylesheet" href="forms.css">
+
+<form class="form-card">
+	<label>Email</label>
+	<input type="email" placeholder="you@example.com" required>
+	<button type="submit" class="primary-btn">Submit</button>
+</form>
+```
+
+### 5) Navbar
+
+```html
+<link rel="stylesheet" href="navbar.css">
+
+<nav class="mini-nav">
+	<span class="mini-brand">UIverse</span>
+	<div class="mini-links">
+		<span>Docs</span>
+		<span>Components</span>
+	</div>
+</nav>
+```
+
+### 6) Inputs
+
+```html
+<link rel="stylesheet" href="input.css">
+
+<div class="preview-input-wrap">
+	<i class="fa-solid fa-magnifying-glass preview-icon"></i>
+	<input class="preview-input" type="text" placeholder="Search components">
+</div>
+```
+
+### 7) Badges
+
+```html
+<link rel="stylesheet" href="badges.css">
+
+<div class="badge-container">
+	<div class="badge">
+		<h3>First PR</h3>
+		<p>Opened your first pull request.</p>
+	</div>
+</div>
+```
+
+For more examples, open each component page (for example `alerts.html`, `cards.html`, `forms.html`) and copy snippets from the "View Code" blocks.
 
 ---
 
