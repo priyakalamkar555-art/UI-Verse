@@ -28,7 +28,7 @@ card sort:title
 
 ## UI demo
 
-Open `components/discovery/component-discovery.html` to use the discovery dashboard.
+Open `components/Discovery/component-discovery.html` to use the discovery dashboard.
 
 ## Test
 

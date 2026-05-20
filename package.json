@@ -44,9 +44,9 @@
         "docs:generate": "node scripts/documentation-generator.js",
         "docs:generate:check": "node scripts/documentation-generator-check.js",
         "theme:test": "playwright test tests/theme --config=playwright.theme.config.ts --reporter=list",
-        "theme:demo": "node -e \"console.log('Open components/theme/demo-theme.html in a browser served from the static server')\"",
+        "theme:demo": "node -e \"console.log('Open components/Theme/demo-theme.html in a browser served from the static server')\"",
         "search:test": "playwright test tests/search --config=playwright.search.config.ts --reporter=list",
-        "search:demo": "node -e \"console.log('Open components/discovery/component-discovery.html in a browser served from the static server')\"",
+        "search:demo": "node -e \"console.log('Open components/Discovery/component-discovery.html in a browser served from the static server')\"",
         "search:check": "node scripts/component-discovery-check.js",
         "a11y:test": "playwright test tests/a11y --config=playwright.a11y.config.ts --reporter=list"
     },

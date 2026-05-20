@@ -7,7 +7,7 @@ const { run } = require('./component-discovery-runner');
 (async () => {
   const result = await run();
   const required = [
-    path.join(process.cwd(), 'components', 'discovery', 'component-discovery.html'),
+    path.join(process.cwd(), 'components', 'Discovery', 'component-discovery.html'),
     path.join(process.cwd(), 'docs', 'COMPONENT_DISCOVERY.md')
   ];
 

@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Component Discovery System', () => {
   test('searches and filters components by query, category, and quality', async ({ page }) => {
-    await page.goto('/components/discovery/component-discovery.html');
+    await page.goto('/components/Discovery/component-discovery.html');
     await page.waitForFunction(() => !!window.ComponentDiscovery && window.ComponentDiscovery.getAll().length > 0);
 
     const allCount = await page.locator('#matchCount').textContent();

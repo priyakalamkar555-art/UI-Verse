@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Component Versioning', () => {
   test('resolves exact versions and fallbacks', async ({ page }) => {
-    await page.goto('/components/discovery/component-discovery.html');
+    await page.goto('/components/Discovery/component-discovery.html');
     await page.waitForFunction(() => !!window.ComponentDiscovery && window.ComponentDiscovery.getAll().length > 0);
 
     // exact match by id
