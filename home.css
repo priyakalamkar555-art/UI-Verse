@@ -261,6 +261,27 @@ h1, h2, h3 {
   transition: all var(--transition);
 }
 
+/* Responsive: collapse sidebar to overlay on small screens and remove left offsets */
+@media (max-width: 991px) {
+  :root { --sidebar-w: 0px; }
+  .sidebar { transform: translateX(-100%); width: 0; pointer-events: none; }
+  .sidebar-backdrop { display: none; }
+  .navbar { left: 0; }
+  main, .main-content, .page-content, .article-content, .content { margin-left: 0 !important; padding-left: 16px; padding-right: 16px; }
+  /* Ensure any elements that used fixed sidebar offset don't overflow */
+  .cards-grid, .cards-grid .card-preview, .profile-card, .product-card, .simple-card { max-width: 100%; width: auto; }
+}
+
+/* Smaller phones: ensure sidebar can be toggled visible via a class (JS can add .sidebar-open to body) */
+@media (max-width: 991px) {
+  body.sidebar-open .sidebar { transform: translateX(0); width: var(--sidebar-w); pointer-events: auto; }
+  body.sidebar-open .sidebar-backdrop { display: block; }
+}
+
+/* Prevent long inline elements from overflowing horizontally */
+* { word-wrap: break-word; }
+img, iframe, video { max-width: 100%; height: auto; }
+
 body.dark-mode .navbar {
   background: var(--navbar-bg);
   border-bottom-color: var(--navbar-border);
