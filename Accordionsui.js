@@ -48,25 +48,27 @@ accordionItems.forEach(item=>{
 NAVBAR SCROLL
 ===================================================== */
 
-window.addEventListener(
-  "scroll",
-  ()=>{
+const navbar =
+  document.querySelector(
+    ".navbar"
+  );
 
-    const navbar =
-      document.querySelector(
-        ".navbar"
-      );
+if (navbar) {
+  window.addEventListener(
+    "scroll",
+    ()=>{
 
-    if(window.scrollY > 20){
+      if(window.scrollY > 20){
 
-      navbar.style.background =
-        "rgba(5,8,22,.95)";
+        navbar.style.background =
+          "rgba(5,8,22,.95)";
 
-    }else{
+      }else{
 
-      navbar.style.background =
-        "rgba(5,8,22,.82)";
+        navbar.style.background =
+          "rgba(5,8,22,.82)";
+      }
+
     }
-
-  }
-);
+  );
+}
