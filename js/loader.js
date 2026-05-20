@@ -5,7 +5,11 @@
 
   const core = [
     'js/registry.js',
+    'js/core/dependency-manager.js',
     'js/core/utils.js',
+    'js/features/design-tokens.js',
+    'js/core/component-versioning.js',
+    'js/core/component-discovery.js',
     'js/core/component-index.js'
   ];
 

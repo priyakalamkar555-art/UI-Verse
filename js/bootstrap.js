@@ -20,17 +20,38 @@ const Bootstrap = {
    * Register all available modules with the UIverse registry
    */
   registerModules() {
+    const dependencyManager = window.DependencyManager || globalThis.DependencyManager || null;
+    const dependenciesFor = (name) => (dependencyManager && typeof dependencyManager.getDependencies === 'function')
+      ? dependencyManager.getDependencies(name)
+      : [];
+
     // Register core modules
+    if (typeof DependencyManager !== 'undefined') {
+      UIverse.register('DependencyManager', DependencyManager, dependenciesFor('DependencyManager'));
+    }
+
     if (typeof Security !== 'undefined') {
-      UIverse.register('Security', Security);
+      UIverse.register('Security', Security, dependenciesFor('Security'));
+    }
+
+    if (typeof DesignTokens !== 'undefined') {
+      UIverse.register('DesignTokens', DesignTokens, dependenciesFor('DesignTokens'));
+    }
+
+    if (typeof ComponentVersioning !== 'undefined') {
+      UIverse.register('ComponentVersioning', ComponentVersioning, dependenciesFor('ComponentVersioning'));
     }
 
     if (typeof ComponentsRegistry !== 'undefined') {
-      UIverse.register('ComponentsRegistry', ComponentsRegistry);
+      UIverse.register('ComponentsRegistry', ComponentsRegistry, dependenciesFor('ComponentsRegistry'));
+    }
+
+    if (typeof ComponentDiscovery !== 'undefined') {
+      UIverse.register('ComponentDiscovery', ComponentDiscovery, dependenciesFor('ComponentDiscovery'));
     }
 
     if (typeof ComponentIndex !== 'undefined') {
-      UIverse.register('ComponentIndex', ComponentIndex);
+      UIverse.register('ComponentIndex', ComponentIndex, dependenciesFor('ComponentIndex'));
     }
 
     // Register feature modules (with optional conditional initialization)
@@ -51,11 +72,11 @@ const Bootstrap = {
     }
 
     if (typeof Search !== 'undefined') {
-      UIverse.register('Search', Search, ['ComponentIndex']);
+      UIverse.register('Search', Search, dependenciesFor('Search'));
     }
 
     if (typeof Theme !== 'undefined') {
-      UIverse.register('Theme', Theme);
+      UIverse.register('Theme', Theme, dependenciesFor('Theme'));
     }
 
     if (typeof Scroll !== 'undefined') {
@@ -80,7 +101,7 @@ const Bootstrap = {
 
 
     if (typeof CommandPalette !== 'undefined') {
-      UIverse.register('CommandPalette', CommandPalette, ['ComponentIndex']);
+      UIverse.register('CommandPalette', CommandPalette, dependenciesFor('CommandPalette'));
     }
 
     if (typeof URLStateManager !== 'undefined') {
@@ -92,7 +113,7 @@ const Bootstrap = {
     }
 
     if (typeof ComponentGallery !== 'undefined') {
-      UIverse.register('ComponentGallery', ComponentGallery);
+      UIverse.register('ComponentGallery', ComponentGallery, dependenciesFor('ComponentGallery'));
     }
 
     if (typeof Favorites !== 'undefined') {

@@ -148,6 +148,21 @@ You can also import single components with subpaths like `ui-verse/button` or `u
 
 ---
 
+## CI / CD
+
+Pull requests run linting, tests, and package checks through GitHub Actions.
+
+For Netlify previews, add these repository secrets:
+
+```text
+NETLIFY_AUTH_TOKEN
+NETLIFY_SITE_ID
+```
+
+When both secrets are set, the preview deploy job runs automatically on pull requests.
+
+---
+
 ## Component Usage Quick Examples
 
 Use this quick workflow when you add any UIverse component to a project:
