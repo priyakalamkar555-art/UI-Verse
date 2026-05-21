@@ -14,7 +14,8 @@ const TutorialMode = {
     overlayEl: null,
     tooltipEl: null,
     highlightEl: null,
-    completionKey: ''
+    completionKey: '',
+    lastOptions: null
   },
 
   _storageKeys: {
@@ -43,15 +44,16 @@ const TutorialMode = {
 
   /**
    * Start tutorial for a given page/category.
-   * @param {{pageKey?: string, categoryKey?: string, steps: Array}} options
+   * @param {{pageKey?: string, categoryKey?: string, steps: Array, force?: boolean}} options
    */
-  start({ pageKey, categoryKey, steps }) {
+  start({ pageKey, categoryKey, steps, force = false } = {}) {
     this._state.pageKey = pageKey || 'global';
     this._state.categoryKey = categoryKey || 'general';
     this._state.completionKey = this._buildCompletionKey(this._state.pageKey, this._state.categoryKey);
+    this._state.lastOptions = { pageKey: this._state.pageKey, categoryKey: this._state.categoryKey, steps };
 
     if (!steps || !Array.isArray(steps) || steps.length === 0) return;
-    if (this._isCompleted()) return;
+    if (!force && this._isCompleted()) return;
 
     this._state.steps = steps;
     this._state.currentIndex = 0;
@@ -65,11 +67,23 @@ const TutorialMode = {
   },
 
   restart() {
+    const lastOptions = this._state.lastOptions || {};
     try {
       localStorage.removeItem(this._state.completionKey);
     } catch {}
     this._state.currentIndex = 0;
     this._state.active = true;
+
+    if (this._state.steps.length === 0 && Array.isArray(lastOptions.steps) && lastOptions.steps.length > 0) {
+      this.start({
+        pageKey: lastOptions.pageKey,
+        categoryKey: lastOptions.categoryKey,
+        steps: lastOptions.steps,
+        force: true
+      });
+      return;
+    }
+
     this._render();
   },
 
@@ -80,7 +94,18 @@ const TutorialMode = {
     const link = document.createElement('link');
     link.id = 'tutorial-mode-css';
     link.rel = 'stylesheet';
-    link.href = 'tutorial-mode.css';
+    const scriptSource = (() => {
+      if (document.currentScript && document.currentScript.src) {
+        return document.currentScript.src;
+      }
+
+      const scriptEl = document.querySelector('script[src*="js/features/tutorial-mode.js"]');
+      return scriptEl ? scriptEl.src : '';
+    })();
+
+    link.href = scriptSource
+      ? new URL('../../tutorial-mode.css', scriptSource).href
+      : 'tutorial-mode.css';
     document.head.appendChild(link);
   },
 
