@@ -12,48 +12,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="navbar.css">
-
-
-  <!-- Primary Meta Tags -->
-  <title>Navbar - UI-Verse</title>
-  <meta name="title" content="Navbar - UI-Verse">
-  <meta name="description" content="Responsive navigation bars and menu components. Sidebars, headers, and mobile-friendly navigation for your projects.">
-  <meta name="author" content="UI-Verse Community">
-  <meta name="keywords" content="ui components, css, html, javascript, open source, web components, frontend, ui library">
-  <link rel="canonical" href="https://uiverse.vercel.app/navbar.html">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://uiverse.vercel.app/navbar.html">
-  <meta property="og:title" content="Navbar - UI-Verse">
-  <meta property="og:description" content="Responsive navigation bars and menu components. Sidebars, headers, and mobile-friendly navigation for your projects.">
-  <meta property="og:image" content="https://uiverse.vercel.app/preview.png">
-  <meta property="og:site_name" content="UI-Verse">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://uiverse.vercel.app/navbar.html">
-  <meta property="twitter:title" content="Navbar - UI-Verse">
-  <meta property="twitter:description" content="Responsive navigation bars and menu components. Sidebars, headers, and mobile-friendly navigation for your projects.">
-  <meta property="twitter:image" content="https://uiverse.vercel.app/preview.png">
-  <meta property="twitter:creator" content="@uiverse">
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "UI-Verse",
-    "url": "https://uiverse.vercel.app",
-    "description": "A curated collection of open-source HTML, CSS, and JavaScript UI components for modern web development. Free to use, regularly updated.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://uiverse.vercel.app/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  <link rel="stylesheet" href="shared-sidebar.css">
+  <link rel="stylesheet" href="command-palette.css">
 </head>
 
 <body>
@@ -64,7 +23,8 @@
     <span class="brand-icon">⬡</span>
     <span class="brand-text">UIverse <span style="font-size: 9px; background: linear-gradient(135deg, #eb6835, #7b61ff); color: white; padding: 1px 6px; border-radius: 10px; font-weight: 800; margin-left: 4px; letter-spacing: 0.5px; vertical-align: middle; box-shadow: 0 0 8px rgba(235,104,53,0.3);">V2</span></span>
   </div>
-          <nav class="sidebar-nav">
+
+  <nav class="sidebar-nav" role="navigation" aria-label="Main sidebar navigation">
     <ul>
       <li>
         <a href="index.html">
@@ -373,6 +333,17 @@
         </a>
       </li>
     </ul>
+
+    <!-- Mobile only buttons -->
+    <div class="mobile-nav-actions">
+      <button class="mobile-action-btn outline-action" aria-label="Add component">
+        <i class="fa-solid fa-plus"></i> Add Component
+      </button>
+      <button class="mobile-action-btn primary-action" aria-label="Open my collection">
+        <i class="fa-solid fa-bookmark"></i> My Collection
+      </button>
+    </div>
+    
   </nav>
   <div class="sidebar-footer">
     <a href="#"><i class="fab fa-github"></i></a>
@@ -384,20 +355,27 @@
 <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
 <!-- ================= NAVBAR ================= -->
-<header class="navbar" id="navbar">
-  <button class="menu-toggle" onclick="toggleSidebar()">
+<header class="navbar" id="navbar" role="navigation" aria-label="Top navigation">
+  <button class="menu-toggle" onclick="toggleSidebar()" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
     <i class="fa-solid fa-bars"></i>
   </button>
   <div class="logo">UIverse</div>
   <div class="search-bar">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input type="text" id="searchInput" placeholder="Search components..." oninput="liveFilter(this.value)" />
+    <input type="text" id="searchInput" placeholder="Search components..." oninput="liveFilter(this.value)" aria-label="Search components" />
+    <kbd class="search-kbd">G��K</kbd>
     <kbd class="search-kbd">⌘K</kbd>
   </div>
+  <div id="searchDropdown" class="search-dropdown hidden">
+    <ul id="searchDropdownResults" class="search-dropdown-results"></ul>
+  </div>
   <div class="nav-right">
-    <button class="nav-btn outline-nav-btn"><i class="fa-solid fa-plus"></i> Add Component</button>
-    <button class="nav-btn primary-nav-btn"><i class="fa-solid fa-bookmark"></i> My Collection</button>
-    <button id="darkModeToggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+    <button class="nav-btn outline-nav-btn" aria-label="Add component"><i class="fa-solid fa-plus"></i> Add Component</button>
+    <a href="MyCollection.html">
+      <button class="nav-btn primary-nav-btn" aria-label="Open my collection"><i class="fa-solid fa-bookmark"></i> My Collection</button>
+    </a>
+    
+    <button id="darkModeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
   </div>
 </header>
 
@@ -1092,9 +1070,14 @@
   <pre id="c18" class="code-block"><code>&lt;nav class="hero-navbar"&gt;
   &lt;span class="brand"&gt;⬡ UIverse&lt;/span&gt;
 
-  &lt;div class="links"&gt;
-    &lt;a href="#"&gt;Home&lt;/a&gt;
-    &lt;a href="#"&gt;Features&lt;/a&gt;
+  &lt;div class="profile-menu"&gt;
+    &lt;img src="https://i.pravatar.cc/40?img=12" alt="Avatar"&gt;
+
+    &lt;div class="dropdown-menu"&gt;
+      &lt;a href="#"&gt;Profile&lt;/a&gt;
+      &lt;a href="#"&gt;Settings&lt;/a&gt;
+      &lt;a href="#"&gt;Logout&lt;/a&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 
   &lt;button&gt;Get Started&lt;/button&gt;
@@ -2195,6 +2178,9 @@
     <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
 </footer>
+
+<script src="js/features/search.js"></script>
+<script src="js/features/command-palette.js"></script>
 
 <script>
   /* Dark Mode */

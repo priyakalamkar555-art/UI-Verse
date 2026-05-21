@@ -331,11 +331,120 @@
         </a>
       </li>
     </ul>
-  </nav>
-  <div class="sidebar-footer">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+  <!-- Gallery page note: See GALLERY_PAGES_GUIDE.md for filtering setup. -->
+
+
+    <h1>Blog Card Components</h1>
+
+    <!-- Blog Card 1 -->
+    <div class="component-card">
+      <h3>Modern Blog Card</h3>
+
+      <div class="blog-demo-box">
+
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Blog" srcset="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=480&amp;auto=format&amp;fit=crop&amp;q=80 480w, https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=768&amp;auto=format&amp;fit=crop&amp;q=80 768w, https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1024&amp;auto=format&amp;fit=crop&amp;q=80 1024w, https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1440&amp;auto=format&amp;fit=crop&amp;q=80 1440w, https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&amp;auto=format&amp;fit=crop&amp;q=80 1920w" sizes="(max-width: 768px) 100vw, 100vw" loading="lazy" decoding="async">
+
+          <div class="blog-content">
+            <span class="blog-tag">Technology</span>
+
+            <h2>Modern UI Design Trends</h2>
+
+            <p>
+              Explore beautiful UI trends, accessibility techniques,
+              and responsive layouts for modern websites.
+            </p>
+
+            <div class="blog-footer">
+              <div class="author">
+                <img src="https://i.pravatar.cc/40?img=12" alt="" srcset="https://i.pravatar.cc/40?img=12 40w, https://i.pravatar.cc/80?img=12 80w, https://i.pravatar.cc/150?img=12 150w, https://i.pravatar.cc/300?img=12 300w" sizes="(max-width: 768px) 96px, 160px" loading="lazy" decoding="async">
+                <span>John Carter</span>
+              </div>
+
+              <button>Read More</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <button onclick="toggleCode('blogCode1')">View Code</button>
+        <button onclick="copyCode('blogCode1')">Copy</button>
+      </div>
+
+<pre id="blogCode1" class="code-block">
+&lt;div class="blog-card"&gt;
+
+  &lt;img src="https://picsum.photos/500/300?random=21" alt=""&gt;
+
+  &lt;div class="blog-content"&gt;
+
+    &lt;span class="blog-tag"&gt;Technology&lt;/span&gt;
+
+    &lt;h2&gt;Modern UI Design Trends&lt;/h2&gt;
+
+    &lt;p&gt;
+      Explore beautiful UI trends and responsive layouts.
+    &lt;/p&gt;
+
+    &lt;div class="blog-footer"&gt;
+
+      &lt;div class="author"&gt;
+        &lt;img src="https://i.pravatar.cc/40?img=12" alt=""&gt;
+        &lt;span&gt;John Carter&lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;button&gt;Read More&lt;/button&gt;
+
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+    </div>
+
+    <!-- ========================= -->
+<!-- Blog Card 5 -->
+<!-- ========================= -->
+
+<div class="component-card">
+  <h3>Gradient Blog Card</h3>
+
+  <div class="blog-demo-box">
+
+    <div class="gradient-blog-card">
+
+      <div class="gradient-content">
+
+        <span class="gradient-tag">Creative</span>
+
+        <h2>Creative Gradient Interfaces</h2>
+
+        <p>
+          Discover how gradients improve modern UI aesthetics
+          and create engaging web experiences.
+        </p>
+
+        <div class="gradient-footer">
+          <span>5 min read</span>
+          <a href="#">Read More →</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <button onclick="toggleCode('blogCode5')">View Code</button>
+    <button onclick="copyCode('blogCode5')">Copy</button>
   </div>
 </aside>
 
@@ -362,6 +471,79 @@
 <!-- MAIN -->
 <main class="main-home">
 
+  &lt;img src="https://picsum.photos/800/450?random=7" alt=""&gt;
+
+  <!-- HERO -->
+
+  <section class="hero-section">
+
+    <div class="hero-badge">
+      ✦ Blog Components Collection
+    </div>
+
+    <h1>
+      Modern <span>Blog Cards</span>
+    </h1>
+
+    <p>
+
+      Discover premium blog card layouts crafted
+      for modern interfaces including minimal cards,
+      featured articles, glassmorphism blogs,
+      magazine layouts and more.
+
+    </p>
+
+  </section>
+
+  <!-- FILTERS -->
+
+  <section class="filter-bar">
+
+    <button class="filter-btn active">
+      All
+    </button>
+
+    <button class="filter-btn">
+      Technology
+    </button>
+
+    <button class="filter-btn">
+      Design
+    </button>
+
+    <button class="filter-btn">
+      Minimal
+    </button>
+
+    <button class="filter-btn">
+      Featured
+    </button>
+
+    <div>
+      <form class="scearch">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Filter blogs..." id="blogSearch">
+      </form>
+    </div>
+  </section>
+
+  <!-- BLOG GRID -->
+
+  <section class="blog-grid">
+
+    <!-- CARD -->
+
+    <div class="blog-card">
+
+      <div class="blog-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+          alt=""
+        >
+
+
   <!-- ===== BLOG HERO ===== -->
   <div class="blog-hero">
     <div class="blog-hero-text">
@@ -380,23 +562,57 @@
         <span><i class="fa-solid fa-fire"></i> Updated weekly</span>
       </div>
     </div>
-    <div class="blog-hero-featured">
-      <div class="blog-featured-chip">📌 Featured</div>
-      <div class="blog-featured-thumb blog-thumb-featured"></div>
-      <div class="blog-featured-body">
-        <div class="blog-tag-row">
-          <span class="blog-cat-tag bct-tutorial">Tutorial</span>
-          <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 8 min read</span>
-        </div>
-        <h2 class="blog-featured-title">Building a Complete Design System from Scratch with Pure CSS</h2>
-        <p class="blog-featured-excerpt">Learn how to build a scalable, token-based design system using only CSS custom properties — no Sass, no frameworks, no build tools required.</p>
-        <div class="blog-featured-footer">
-          <div class="blog-author-row">
-            <div class="blog-avatar blog-avatar-orange">AK</div>
-            <div>
-              <span class="blog-author-name">Ankit Pardeshi</span>
-              <span class="blog-author-date">May 12, 2026</span>
-            </div>
+
+  </div>
+
+  <div class="actions">
+    <button onclick="toggleCode('blogCode8')">View Code</button>
+    <button onclick="copyCode('blogCode8')">Copy</button>
+  </div>
+
+<pre id="blogCode8" class="code-block">
+&lt;div class="split-blog-card"&gt;
+
+  &lt;div class="split-image"&gt;
+    &lt;img src="https://picsum.photos/800/450?random=8" alt=""&gt;
+  &lt;/div&gt;
+
+  &lt;div class="split-content"&gt;
+
+    &lt;span&gt;Frontend&lt;/span&gt;
+
+    &lt;h2&gt;Responsive Web Layouts&lt;/h2&gt;
+
+    &lt;p&gt;
+      Learn how to build flexible layouts.
+    &lt;/p&gt;
+
+    &lt;a href="#"&gt;View Article&lt;/a&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+</div>
+    <!-- Blog Card 2 -->
+    <div class="component-card">
+      <h3>Glassmorphism Blog Card</h3>
+
+      <div class="blog-demo-box">
+
+        <div class="glass-blog-card">
+
+          <div class="glass-overlay">
+            <span>Design</span>
+
+            <h2>Glass UI Components</h2>
+
+            <p>
+              Learn how to create frosted glass effects
+              using pure CSS.
+            </p>
+
+            <a href="#">Explore →</a>
           </div>
           <a href="#" class="blog-read-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
         </div>
