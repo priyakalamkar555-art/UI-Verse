@@ -241,14 +241,47 @@ const TutorialMode = {
       }
     }
 
-    // Tooltip position (simple): place panel near top center
-    // Could be improved to anchor near element; keep stable across layouts.
-    this._positionPanel();
+    // Position the tooltip relative to the current target so it tracks layout shifts.
+    this._positionPanel(el);
   },
 
-  _positionPanel() {
-    // Keep the panel fixed so it doesn't jump when scrolling.
-    this._state.tooltipEl.style.transform = 'translateY(0)';
+  _positionPanel(el) {
+    if (!this._state.tooltipEl) return;
+
+    const panel = this._state.tooltipEl;
+
+    // Fallback placement keeps the panel readable when no target is available.
+    if (!el || typeof el.getBoundingClientRect !== 'function') {
+      panel.style.position = 'absolute';
+      panel.style.top = '84px';
+      panel.style.left = '50%';
+      panel.style.transform = 'translateX(-50%)';
+      return;
+    }
+
+    const rect = el.getBoundingClientRect();
+    const panelRect = panel.getBoundingClientRect();
+    const gap = 16;
+    const viewportPadding = 14;
+    const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+    const panelWidth = Math.min(panelRect.width || 560, Math.max(320, viewportWidth - viewportPadding * 2));
+    const panelHeight = panelRect.height || 180;
+
+    let top = rect.bottom + gap;
+    if (top + panelHeight > viewportHeight - viewportPadding && rect.top - gap - panelHeight >= viewportPadding) {
+      top = rect.top - gap - panelHeight;
+    }
+
+    top = Math.max(viewportPadding, Math.min(top, Math.max(viewportPadding, viewportHeight - panelHeight - viewportPadding)));
+
+    let left = rect.left + (rect.width / 2) - (panelWidth / 2);
+    left = Math.max(viewportPadding, Math.min(left, Math.max(viewportPadding, viewportWidth - panelWidth - viewportPadding)));
+
+    panel.style.position = 'absolute';
+    panel.style.top = `${top}px`;
+    panel.style.left = `${left}px`;
+    panel.style.transform = 'none';
   },
 
   _highlightElement(el) {
