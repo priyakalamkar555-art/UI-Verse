@@ -15,6 +15,8 @@
 
   let cardsObserver = null;
   let reconcileQueued = false;
+  let pendingActiveCell = undefined;
+  let syncRetryQueued = false;
 
   function getCardElements() {
     return Array.from(document.querySelectorAll(CARD_SELECTOR));
@@ -182,7 +184,29 @@
 
   function syncActive(activeCell) {
     const grid = document.getElementById(OVERLAY_GRID_ID);
-    if (!grid) return;
+    if (!grid) {
+      pendingActiveCell = activeCell;
+      if (!syncRetryQueued) {
+        syncRetryQueued = true;
+        const retry = () => {
+          syncRetryQueued = false;
+          if (pendingActiveCell === undefined) return;
+          const queuedCell = pendingActiveCell;
+          pendingActiveCell = undefined;
+          syncActive(queuedCell);
+        };
+
+        if (typeof window.requestAnimationFrame === 'function') {
+          window.requestAnimationFrame(retry);
+        } else {
+          setTimeout(retry, 0);
+        }
+      }
+      return;
+    }
+
+    // Grid is available now; any queued state has been superseded.
+    pendingActiveCell = undefined;
 
     const cells = Array.from(grid.querySelectorAll('.uiverse-compare-cell'));
     const isActiveCell = (cell) => !!activeCell && cell === activeCell;
