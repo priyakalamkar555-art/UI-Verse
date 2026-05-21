@@ -33,6 +33,15 @@ body.dark-mode {
     min-height: 100vh;
 }
 
+.component-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+}
+
 .chart-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -41,6 +50,19 @@ body.dark-mode {
 }
 
 .chart-card {
+    background: var(--ch-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--ch-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    max-height: 300px;
+}
+
+.component-card {
     background: var(--ch-surface);
     backdrop-filter: blur(12px);
     border: 1px solid var(--ch-border);
@@ -90,6 +112,17 @@ body.dark-mode {
     color: var(--ch-text);
 }
 
+.preview-box {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(148, 163, 184, 0.05);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    max-height: 250px;
+    overflow-y: auto;
+    min-height: 120px;
+}
+
 /* =========================================================
    1. Analytics Dashboard Cards (Stat Cards)
    ========================================================= */
@@ -97,6 +130,12 @@ body.dark-mode {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .stat-card-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 .stat-item {
@@ -150,7 +189,6 @@ body.dark-mode {
     align-items: center;
     height: 100%;
     position: relative;
-    group: hover;
 }
 
 .bar {
@@ -476,6 +514,12 @@ body.dark-mode .component-card .card-desc,
 }
 
 /* Responsive adjustment */
+@media (max-width: 1024px) {
+    .component-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     .main-home {
         margin-left: 0 !important;
@@ -485,6 +529,35 @@ body.dark-mode .component-card .card-desc,
     .navbar {
         left: 0 !important;
         width: 100% !important;
+    }
+    .component-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .component-card {
+        padding: 1.25rem;
+    }
+    .preview-box {
+        max-height: 200px;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .component-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .component-card {
+        padding: 1rem;
+    }
+    .preview-box {
+        max-height: 150px;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    .card-header h3 {
+        font-size: 1rem;
     }
 }
 
