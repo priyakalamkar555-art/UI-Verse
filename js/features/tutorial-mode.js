@@ -17,6 +17,7 @@ const TutorialMode = {
     overlayClickHandler: null,
     keydownHandler: null,
     refreshHandler: null,
+    refreshRafId: null,
     completionKey: null,
     lastOptions: null
   },
@@ -312,6 +313,19 @@ const TutorialMode = {
     if (!this._state.highlightEl) return;
     if (!el || typeof el.getBoundingClientRect !== 'function') return;
 
+    this._applyHighlightMetrics(el);
+
+    if (!this._state.refreshHandler) {
+      this._state.refreshHandler = () => this._scheduleHighlightRefresh();
+      window.addEventListener('scroll', this._state.refreshHandler, { passive: true });
+      window.addEventListener('resize', this._state.refreshHandler);
+    }
+  },
+
+  _applyHighlightMetrics(el) {
+    if (!this._state.highlightEl) return;
+    if (!el || typeof el.getBoundingClientRect !== 'function') return;
+
     const rect = el.getBoundingClientRect();
     const pad = 8;
     this._state.highlightEl.style.display = 'block';
@@ -320,25 +334,24 @@ const TutorialMode = {
     this._state.highlightEl.style.width = `${rect.width + pad * 2}px`;
     this._state.highlightEl.style.height = `${rect.height + pad * 2}px`;
     this._state.highlightEl.style.borderRadius = getComputedStyle(el).borderRadius || '14px';
+  },
 
-    // Update on resize/scroll for accuracy
-    const refresh = () => {
+  _scheduleHighlightRefresh() {
+    if (this._state.refreshRafId !== null) return;
+
+    const schedule = typeof window.requestAnimationFrame === 'function'
+      ? window.requestAnimationFrame.bind(window)
+      : (fn) => window.setTimeout(fn, 16);
+
+    this._state.refreshRafId = schedule(() => {
+      this._state.refreshRafId = null;
       if (!this._state.active) return;
       const currentStep = this._state.steps[this._state.currentIndex];
       if (!currentStep || !currentStep.selector) return;
       const target = document.querySelector(currentStep.selector);
       if (!target) return;
-      this._highlightElement(target);
-    };
-
-    // Keep a single handler to avoid leaks
-    if (this._state.refreshHandler) {
-      window.removeEventListener('scroll', this._state.refreshHandler);
-      window.removeEventListener('resize', this._state.refreshHandler);
-    }
-    this._state.refreshHandler = refresh;
-    window.addEventListener('scroll', refresh, { passive: true });
-    window.addEventListener('resize', refresh);
+      this._applyHighlightMetrics(target);
+    });
   },
 
   next() {
@@ -370,6 +383,15 @@ const TutorialMode = {
       window.removeEventListener('scroll', this._state.refreshHandler);
       window.removeEventListener('resize', this._state.refreshHandler);
       this._state.refreshHandler = null;
+    }
+
+    if (this._state.refreshRafId !== null) {
+      if (typeof window.cancelAnimationFrame === 'function') {
+        window.cancelAnimationFrame(this._state.refreshRafId);
+      } else {
+        window.clearTimeout(this._state.refreshRafId);
+      }
+      this._state.refreshRafId = null;
     }
 
     if (this._state.overlayEl && this._state.overlayClickHandler) {
