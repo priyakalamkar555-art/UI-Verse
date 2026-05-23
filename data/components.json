@@ -88,6 +88,14 @@
     "description": "Sticky note, memo and note-taking UI components"
   },
   {
+    "id": "leaderboard-components",
+    "title": "Leaderboard Components",
+    "path": "leaderboard-components.html",
+    "tags": ["leaderboard", "ranking", "statistics", "components"],
+    "aliases": ["leaderboards", "rankings", "scoreboard"],
+    "description": "Ranking and statistics UI for games, education, and dashboards"
+  },
+  {
     "id": "breadcrumbs",
     "title": "Breadcrumb Components",
     "path": "breadcrumbs.html",
