@@ -1030,14 +1030,15 @@ body.dark-mode .feature-card:hover {
   justify-content: center;
   color: #888;
   text-decoration: none;
+  margin-right: 12px;
   font-size: 14px;
-  transition: all var(--transition);
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .socials a:hover {
   background: var(--accent);
   color: #fff;
-  transform: translateY(-2px);
+  transform: scale(1.1);
 }
 
 .newsletter-form {
